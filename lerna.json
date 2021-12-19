@@ -9,6 +9,9 @@
     "--frozen-lockfile"
   ],
   "command": {
+    "version": {
+      "allowBranch": "main"
+    },
     "publish": {
       "message": "chore(release): publish"
     }
