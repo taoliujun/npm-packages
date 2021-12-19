@@ -10,7 +10,7 @@
   ],
   "command": {
     "version": {
-      "allowBranch": "main"
+      "allowBranch": "master"
     },
     "publish": {
       "message": "chore(release): publish"
