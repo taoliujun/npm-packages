@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
 
-    "target": "esnext",
+    "target": "es5",
     "module": "commonjs"
   },
   "include": ["packages/**/*"]

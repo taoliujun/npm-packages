@@ -1,0 +1,37 @@
+{
+  "name": "webpack-plugin-noop-ts",
+  "version": "1.0.0",
+  "description": "webpack plugin for typescript that does nothing",
+  "keywords": [
+    "webpack",
+    "plugin",
+    "noop"
+  ],
+  "author": "taoliujun <taoliujun@qq.com>",
+  "homepage": "https://github.com/taoliujun/npm-packages#readme",
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "/*.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoliujun/npm-packages.git"
+  },
+  "scripts": {
+    "clean": "rm -rf lib/",
+    "cjs": "tsc --module commonjs --outDir lib/cjs",
+    "esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
+    "build": "yarn run clean && yarn run cjs && yarn run esm"
+  },
+  "bugs": {
+    "url": "https://github.com/taoliujun/npm-packages/issues"
+  }
+}
