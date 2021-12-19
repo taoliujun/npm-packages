@@ -31,3 +31,5 @@ const webpackConfig = (): Configuration => {
 
 ## License
 MIT
+
+11
