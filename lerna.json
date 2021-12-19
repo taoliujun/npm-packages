@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "npmClientArgs": [
+    "--frozen-lockfile"
+  ],
+  "command": {
+    "publish": {
+      "message": "chore(release): publish"
+    }
+  }
+}

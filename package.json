@@ -1,0 +1,31 @@
+{
+  "name": "npm-packages",
+  "version": "1.0.0",
+  "description": "taoliujun npm packages",
+  "private": true,
+  "author": "taoliujun",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.19.3",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@shm-open/eslint-config-bundle": "^1.7.2",
+    "@types/node": "^16.11.9",
+    "@types/webpack": "^5.28.0",
+    "babel-loader": "^8.2.3",
+    "chalk": "^4",
+    "eslint": "^8.3.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.1.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2",
+    "yarn-deduplicate": "^3.1.0"
+  },
+  "scripts": {
+    "lint": "eslint packages/ --ext .ts --cache",
+    "postinstall": "yarn-deduplicate yarn.lock",
+    "prepare": "husky install"
+  }
+}

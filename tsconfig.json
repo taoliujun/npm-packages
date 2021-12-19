@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    "target": "esnext",
+    "module": "commonjs"
+  },
+  "include": ["packages/**/*"]
+}
