@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@shm-open/eslint-config-bundle": "^1.7.2",
     "@types/node": "^16.11.9",
     "babel-loader": "^8.2.3",

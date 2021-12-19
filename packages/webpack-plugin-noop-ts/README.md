@@ -1,7 +1,7 @@
 # webpack-plugin-noop-ts
 [![npm](https://img.shields.io/npm/v/webpack-plugin-noop-ts.svg)](https://www.npmjs.com/package/webpack-plugin-noop-ts)
 
-> webpack plugin for typescript that does nothing
+> webpack plugin for typescript that does nothing, fork from https://github.com/QingWei-Li/noop-webpack-plugin
 
 ## Installation
 ```shell

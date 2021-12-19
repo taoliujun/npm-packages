@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn commitlint --edit $1 --help-url='https://duapp.yuque.com/team_tech/wktz1k/dycpyb'
+yarn commitlint --edit "$1"
