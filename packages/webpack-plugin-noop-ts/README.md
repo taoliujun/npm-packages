@@ -33,3 +33,4 @@ const webpackConfig = (): Configuration => {
 MIT
 
 11
+1

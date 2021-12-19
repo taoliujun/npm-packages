@@ -29,7 +29,7 @@
   },
   "scripts": {
     "lerna:version": "lerna version --no-commit-hooks --conventional-commits --include-merged-tags --no-push",
-    "lerna:publish": "lerna publish --include-merged-tags",
+    "lerna:publish": "lerna publish from-package --include-merged-tags",
     "publish": "yarn lerna:version && yarn lerna:publish",
     "lint": "eslint packages/ --ext .ts --cache",
     "postinstall": "yarn-deduplicate yarn.lock",
