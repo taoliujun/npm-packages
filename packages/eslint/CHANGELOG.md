@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.1.0 (2022-05-21)
+
+
+### Features
+
+* init config ([041d10f](https://github.com/taoliujun/npm-packages/commit/041d10f536ce1cd4175944fb57fc21ed08631690))
