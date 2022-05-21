@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint@1.2.1...@taoliujun/eslint@1.3.0) (2022-05-21)
+
+
+### Bug Fixes
+
+* add prettier and base rules ([61aed85](https://github.com/taoliujun/npm-packages/commit/61aed852ab121410cf1abd7c1c351903105c9207))
+
+
+### Features
+
+* support react ([7257bdd](https://github.com/taoliujun/npm-packages/commit/7257bdd300d06fa0c8c28d73449b68ea8af96517))
+* support typescript ([9e71826](https://github.com/taoliujun/npm-packages/commit/9e71826654b7220e19068086a3c2d359e3157160))
+
+
+
+
+
 ## [1.2.1](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint@1.2.0...@taoliujun/eslint@1.2.1) (2022-05-21)
 
 
