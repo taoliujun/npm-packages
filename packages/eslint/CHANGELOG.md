@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint@1.1.0...@taoliujun/eslint@1.2.0) (2022-05-21)
+
+
+### Features
+
+* support js, add prettier ([e4b2fa8](https://github.com/taoliujun/npm-packages/commit/e4b2fa8177e0e7e0890add1e191673e41f5f0e33))
+
+
+
+
+
 # 1.1.0 (2022-05-21)
 
 
