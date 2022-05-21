@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.4.0...@taoliujun/eslint-config@1.4.1) (2022-05-21)
+
+**Note:** Version bump only for package @taoliujun/eslint-config
+
+
+
+
+
 # 1.4.0 (2022-05-21)
 
 
