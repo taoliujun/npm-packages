@@ -1,1 +1,1 @@
-module.exports = require('@taoliujun/eslint/prettier');
+module.exports = require('@taoliujun/eslint-config/prettier');

@@ -1,4 +1,3 @@
 module.exports = {
-    // extends: ['@taoliujun/eslint'],
-    extends: ['./packages/eslint'],
+    extends: ['@taoliujun/eslint-config'],
 };

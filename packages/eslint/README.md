@@ -1,6 +1,6 @@
-# @taoliujun/eslint
+# @taoliujun/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@taoliujun/eslint.svg)](https://www.npmjs.com/package/@taoliujun/eslint)
+[![npm](https://img.shields.io/npm/v/@taoliujun/eslint-config.svg)](https://www.npmjs.com/package/@taoliujun/eslint)
 
 > eslint for private use
 
@@ -8,7 +8,7 @@
 
 ```shell
 # yarn
-yarn add -D @taoliujun/eslint
+yarn add -D @taoliujun/eslint-config
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ yarn add -D @taoliujun/eslint
 ```javascript
 // for js/ts
 module.exports = {
-    extends: ['@taoliujun/eslint'],
+    extends: ['@taoliujun/eslint-config'],
 };
 ```
 
@@ -27,12 +27,12 @@ module.exports = {
 ```javascript
 // for react
 module.exports = {
-    extends: ['@taoliujun/eslint/react'],
+    extends: ['@taoliujun/eslint-config/react'],
 };
 ```
 
 * .prettierrc.js
 
 ```javascript
-module.exports = require('@taoliujun/eslint/prettier');
+module.exports = require('@taoliujun/eslint-config/prettier');
 ```
