@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.4.1...@taoliujun/eslint-config@1.4.2) (2022-05-21)
+
+
+### Bug Fixes
+
+* support typescript import resolve ([86f3a31](https://github.com/taoliujun/npm-packages/commit/86f3a31a544397bdcceca3107262d0815f8331b3))
+
+
+
+
+
 ## [1.4.1](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.4.0...@taoliujun/eslint-config@1.4.1) (2022-05-21)
 
 **Note:** Version bump only for package @taoliujun/eslint-config
