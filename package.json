@@ -25,5 +25,8 @@
     "lint": "eslint packages/ --ext .ts,.js --cache",
     "postinstall": "yarn-deduplicate yarn.lock",
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "@taoliujun/eslint-config": "^1.4.0"
   }
 }
