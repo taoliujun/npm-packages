@@ -1,6 +1,6 @@
 {
-  "name": "@taoliujun/eslint",
-  "version": "1.3.0",
+  "name": "@taoliujun/eslint-config",
+  "version": "1.3.1",
   "description": "eslint for private use",
   "keywords": [
     "eslint"
