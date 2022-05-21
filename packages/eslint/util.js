@@ -3,13 +3,15 @@
  * @param {'base'|'typescript'|'react'} input
  */
 function getExtends(input) {
-    const out = ['airbnb-base'];
+    const out = ['airbnb-base', require.resolve('./rules')];
 
     if (input === 'typescript') {
         out.push('plugin:@typescript-eslint/recommended');
+    } else if (input === 'react') {
+        out.push('plugin:react/recommended', 'plugin:react/jsx-runtime');
     }
 
-    out.push('prettier', require.resolve('./rules'));
+    out.push('prettier');
 
     return out;
 }
