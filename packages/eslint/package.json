@@ -1,0 +1,25 @@
+{
+  "name": "@taoliujun/eslint",
+  "version": "1.0.0",
+  "description": "eslint for private use",
+  "keywords": [
+    "eslint"
+  ],
+  "author": "taoliujun <taoliujun@qq.com>",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/eslint",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "/*.js",
+    "/*.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoliujun/npm-packages.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/taoliujun/npm-packages/issues"
+  }
+}
