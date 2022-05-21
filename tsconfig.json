@@ -1,14 +1,4 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "exactOptionalPropertyTypes": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-
-    "target": "es5",
-    "module": "commonjs"
-  },
+  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
   "include": ["packages/**/*"]
 }

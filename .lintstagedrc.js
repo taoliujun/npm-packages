@@ -1,3 +1,3 @@
 module.exports = {
-    'package/**/*.{ts}': ['eslint'],
+    'package/**/*.{js,ts}': ['eslint'],
 };

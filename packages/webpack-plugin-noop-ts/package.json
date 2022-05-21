@@ -7,14 +7,16 @@
     "plugin",
     "noop"
   ],
+  "engines": {
+    "node": ">=14"
+  },
   "author": "taoliujun <taoliujun@qq.com>",
   "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/webpack-plugin-noop-ts",
   "license": "MIT",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "directories": {
-    "lib": "lib"
+  "exports": {
+    "import": "./lib/esm/index.js",
+    "require": "./lib/cjs/index.js"
   },
   "files": [
     "lib",
