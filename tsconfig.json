@@ -1,4 +1,6 @@
 {
   "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
-  "include": ["packages/**/*"]
+  "include": [
+    "packages/**/*"
+  ]
 }

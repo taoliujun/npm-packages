@@ -10,15 +10,14 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "/*.js",
-    "/*.md",
+    "*.js",
+    "*.md",
     "package.json"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/taoliujun/npm-packages.git"
   },
-  "scripts": {},
   "bugs": {
     "url": "https://github.com/taoliujun/npm-packages/issues"
   },
@@ -27,6 +26,9 @@
     "@babel/eslint-parser": "^7.17.0",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
-  }
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.6.2"
+  },
+  "scripts": {}
 }
