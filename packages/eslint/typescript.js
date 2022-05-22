@@ -33,6 +33,14 @@ module.exports = {
         // array type
         '@typescript-eslint/array-type': ['error'],
 
+        // enforce import type
+        '@typescript-eslint/consistent-type-imports': [
+            'error',
+            {
+                disallowTypeAnnotations: false,
+            },
+        ],
+
         // no-unused-vars
         '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
 
