@@ -7,6 +7,9 @@ module.exports = {
         'max-lines': ['error', { max: 500, skipBlankLines: true, skipComments: true }],
         'max-lines-per-function': ['warn', { max: 100, skipBlankLines: true, skipComments: true }],
 
+        // ignore this check in class
+        "class-methods-use-this": ['off'],
+
         // import ignore resolving asset files
         'import/no-unresolved': [
             'error',
