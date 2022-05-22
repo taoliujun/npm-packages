@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.4.2...@taoliujun/eslint-config@1.4.3) (2022-05-22)
+
+
+### Bug Fixes
+
+* enforce import type ([0ee22fa](https://github.com/taoliujun/npm-packages/commit/0ee22fa35bf2464ac078732b71621bfeaa2c3cba))
+
+
+
+
+
 ## [1.4.2](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.4.1...@taoliujun/eslint-config@1.4.2) (2022-05-21)
 
 
