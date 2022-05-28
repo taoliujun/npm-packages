@@ -23,7 +23,7 @@
   "scripts": {
     "lerna:version": "lerna version --no-commit-hooks --conventional-commits --include-merged-tags --no-push",
     "lerna:publish": "lerna publish from-package --include-merged-tags",
-    "release": "lerna:version && lerna:publish",
+    "release": "yarn lerna:version && yarn lerna:publish",
     "build": "lerna run build",
     "lint:ts": "lerna run lint:ts",
     "lint": "eslint packages --ext .ts,.js --cache",
