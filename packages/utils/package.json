@@ -14,8 +14,14 @@
   },
   "types": "lib/types/index.d.ts",
   "exports": {
-    "import": "./lib/esm/index.js",
-    "require": "./lib/cjs/index.js"
+    "./money": {
+      "import": "./lib/esm/money.js",
+      "require": "./lib/cjs/money.js"
+    },
+    "./ahooks": {
+      "import": "./lib/esm/ahooks.js",
+      "require": "./lib/cjs/ahooks.js"
+    }
   },
   "files": [
     "lib",
