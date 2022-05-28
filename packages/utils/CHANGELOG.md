@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/taoliujun/npm-packages/compare/@taoliujun/utils@1.3.3...@taoliujun/utils@1.3.4) (2022-05-28)
+
+
+### Bug Fixes
+
+* yuanToFen bug ([6ad722e](https://github.com/taoliujun/npm-packages/commit/6ad722e4fd236555e67708451c4f31fb302dfd08))
+
+
+
+
+
 ## [1.3.3](https://github.com/taoliujun/npm-packages/compare/@taoliujun/utils@1.3.2...@taoliujun/utils@1.3.3) (2022-05-28)
 
 **Note:** Version bump only for package @taoliujun/utils
