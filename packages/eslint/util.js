@@ -11,7 +11,7 @@ function getExtends(input) {
         out.push('plugin:react/recommended', 'plugin:react/jsx-runtime');
     }
 
-    out.push('prettier');
+    out.push('plugin:prettier/recommended');
 
     return out;
 }
