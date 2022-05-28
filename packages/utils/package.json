@@ -30,9 +30,16 @@
     "url": "https://github.com/taoliujun/npm-packages/issues"
   },
   "scripts": {
+    "lint:ts": "tsc -p ./tsconfig.json --noEmit",
     "clean": "rm -rf lib/",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "build:esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
     "build": "yarn run clean && yarn run build:cjs && yarn run build:esm"
+  },
+  "peerDependencies": {
+    "ahooks": "^3.4.0"
+  },
+  "devDependencies": {
+    "ahooks": "^3.4.0"
   }
 }

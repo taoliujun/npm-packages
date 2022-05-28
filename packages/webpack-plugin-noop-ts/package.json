@@ -28,6 +28,7 @@
     "url": "git+https://github.com/taoliujun/npm-packages.git"
   },
   "scripts": {
+    "lint:ts": "tsc -p ./tsconfig.json --noEmit",
     "clean": "rm -rf lib/",
     "cjs": "tsc --module commonjs --outDir lib/cjs",
     "esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
