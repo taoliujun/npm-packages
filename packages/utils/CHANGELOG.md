@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/taoliujun/npm-packages/compare/@taoliujun/utils@1.2.0...@taoliujun/utils@1.3.0) (2022-05-28)
+
+
+### Features
+
+* 添加ahooks的useRequest的localStorage缓存 ([819de4d](https://github.com/taoliujun/npm-packages/commit/819de4dfd6400cd1d62c1808ee44a780caa697f8))
+
+
+
+
+
 # [1.2.0](https://github.com/taoliujun/npm-packages/compare/@taoliujun/utils@1.1.0...@taoliujun/utils@1.2.0) (2022-05-28)
 
 
