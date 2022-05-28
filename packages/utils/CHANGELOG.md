@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/taoliujun/npm-packages/compare/@taoliujun/utils@1.1.0...@taoliujun/utils@1.2.0) (2022-05-28)
+
+
+### Features
+
+* 增加人民币方法 ([83f0f19](https://github.com/taoliujun/npm-packages/commit/83f0f19f4cdc4b3ced475c1698f07c9811e44189))
+
+
+
+
+
 # 1.1.0 (2022-05-28)
 
 
