@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import { formatNumber, tryConvertToNumber } from './utils/number';
 
 /** 人民币符号 */

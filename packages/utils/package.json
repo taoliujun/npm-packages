@@ -12,10 +12,7 @@
   "engines": {
     "node": ">=12"
   },
-  "exports": {
-    "./money": "./lib/money.js",
-    "./ahooks": "./lib/ahooks.js"
-  },
+  "main": "lib/index.js",
   "files": [
     "lib",
     "/*.md",

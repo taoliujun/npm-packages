@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import type { useRequest } from 'ahooks';
 
 /** ahook useRequest cache */
