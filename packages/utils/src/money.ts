@@ -17,7 +17,7 @@ export const fenToYuan = (money: number | undefined, fixedDigits?: number) => {
 
 /** 元 转 分 */
 export const yuanToFen = (money: number | undefined) => {
-    const fen = Math.floor(tryConvertToNumber(money || 0, 0)) * 100;
+    const fen = Math.round((money || 0) * 10000) / 100;
     return fen;
 };
 
