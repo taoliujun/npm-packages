@@ -1,0 +1,39 @@
+{
+  "name": "@taoliujun/utils",
+  "version": "1.0.0",
+  "description": "utils for private use",
+  "keywords": [
+    "money",
+    "金额"
+  ],
+  "author": "taoliujun <taoliujun@qq.com>",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/utils",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    "import": "./lib/esm/index.js",
+    "require": "./lib/cjs/index.js"
+  },
+  "files": [
+    "lib",
+    "/*.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoliujun/npm-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taoliujun/npm-packages/issues"
+  },
+  "dependencies": {},
+  "scripts": {
+    "clean": "rm -rf lib/",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "build:esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
+    "build": "yarn run clean && yarn run build:cjs && yarn run build:esm"
+  }
+}
