@@ -12,16 +12,9 @@
   "engines": {
     "node": ">=12"
   },
-  "types": "lib/types/index.d.ts",
   "exports": {
-    "./money": {
-      "import": "./lib/esm/money.js",
-      "require": "./lib/cjs/money.js"
-    },
-    "./ahooks": {
-      "import": "./lib/esm/ahooks.js",
-      "require": "./lib/cjs/ahooks.js"
-    }
+    "./money": "./lib/money.js",
+    "./ahooks": "./lib/ahooks.js"
   },
   "files": [
     "lib",
@@ -38,9 +31,8 @@
   "scripts": {
     "lint:ts": "tsc -p ./tsconfig.json --noEmit",
     "clean": "rm -rf lib/",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
-    "build:esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
-    "build": "yarn run clean && yarn run build:cjs && yarn run build:esm"
+    "build:esm": "tsc --module es6 -d --outDir lib",
+    "build": "yarn run clean && yarn run build:esm"
   },
   "peerDependencies": {
     "ahooks": "^3.4.0"
