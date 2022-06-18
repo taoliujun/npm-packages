@@ -31,6 +31,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@taoliujun/eslint-config": "^1.4.0"
+    "@taoliujun/eslint-config": "^1.4.6"
   }
 }
