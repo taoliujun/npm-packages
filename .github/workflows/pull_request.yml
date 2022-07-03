@@ -1,0 +1,7 @@
+name: pull_request
+on: [pull_request]
+jobs:
+    eslint:
+        runs-on: ubuntu-latest
+        steps:
+            run: echo "i am eslint"
