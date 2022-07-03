@@ -1,7 +1,7 @@
 name: push
-on: [push]
+on: push
 jobs:
     eslint:
         runs-on: ubuntu-latest
         steps:
-            run: echo "i am eslint"
+            - run: echo "i am eslint"
