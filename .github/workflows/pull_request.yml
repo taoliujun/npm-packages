@@ -1,5 +1,5 @@
-name: push
-on: push
+name: pull_request
+on: pull_request
 jobs:
     eslint:
         runs-on: ubuntu-latest
