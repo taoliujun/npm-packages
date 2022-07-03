@@ -11,4 +11,4 @@ jobs:
             - name: test
               env:
                   YOUR_AGE: 18
-              run: echo 'Hello, ${{ env.YOUR_NAME }}, your sex is ${{ toJSON(jobs).eslint.env.YOUR_SEX }}, your age is $YOUR_AGE'
+              run: echo 'Hello, ${{ env.YOUR_NAME }}, your sex is $YOUR_SEX, your age is $YOUR_AGE'
