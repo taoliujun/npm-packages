@@ -4,4 +4,6 @@ jobs:
     eslint:
         runs-on: ubuntu-latest
         steps:
+            - name: Check out repo's default branch
+              uses: actions/checkout@v3
             - run: echo "i am eslint"
