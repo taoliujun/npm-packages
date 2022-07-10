@@ -14,6 +14,7 @@ module.exports = {
     // 框架强制部分文件export default
     {
       files: [
+        './config/config.ts',
         './src/app.ts',
         './src/layouts/index.tsx',
         './src/pages/index.tsx',
