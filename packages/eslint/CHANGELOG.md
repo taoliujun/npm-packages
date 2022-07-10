@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.5.0...@taoliujun/eslint-config@1.5.1) (2022-07-10)
+
+
+### Bug Fixes
+
+* update umi eslint ([8994862](https://github.com/taoliujun/npm-packages/commit/8994862bb63270ac816535f36f8e7c60ff42294b))
+
+
+
+
+
 # [1.5.0](https://github.com/taoliujun/npm-packages/compare/@taoliujun/eslint-config@1.4.7...@taoliujun/eslint-config@1.5.0) (2022-07-10)
 
 
