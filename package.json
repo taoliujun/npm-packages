@@ -21,7 +21,7 @@
     "yarn-deduplicate": "^5.0.0"
   },
   "scripts": {
-    "lerna:version": "lerna version --no-commit-hooks --conventional-commits --include-merged-tags --no-push",
+    "lerna:version": "lerna version --no-commit-hooks --conventional-commits --include-merged-tags",
     "lerna:publish": "lerna publish from-package --include-merged-tags",
     "release": "yarn lerna:version && yarn lerna:publish",
     "build": "lerna run build",
