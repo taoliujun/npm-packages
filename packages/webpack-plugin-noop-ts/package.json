@@ -8,34 +8,37 @@
     "noop"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "author": "taoliujun <taoliujun@qq.com>",
   "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/webpack-plugin-noop-ts",
   "license": "MIT",
-  "types": "lib/types/index.d.ts",
+  "types": "./lib/types/index.d.ts",
   "exports": {
     "import": "./lib/esm/index.js",
     "require": "./lib/cjs/index.js"
   },
   "files": [
     "lib",
-    "/*.md",
+    "*.md",
     "package.json"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/taoliujun/npm-packages.git"
   },
-  "scripts": {
-    "lint:ts": "tsc -p ./tsconfig.json --noEmit",
-    "clean": "rm -rf lib/",
-    "cjs": "tsc --module commonjs --outDir lib/cjs",
-    "esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
-    "build": "npm run clean && npm run cjs && npm run esm"
-  },
   "bugs": {
     "url": "https://github.com/taoliujun/npm-packages/issues"
   },
-  "gitHead": "1e04cfaeb31b8c8c2319b2cfd484d926c3599ade"
+  "scripts": {
+    "lint:ts": "tsc --noEmit",
+    "clean": "rm -rf lib/",
+    "build:types": "tsc -d --emitDeclarationOnly --declarationDir lib/types",
+    "build:cjs": "tsc --module commonjs --moduleResolution node --outDir lib/cjs",
+    "build:esm": "tsc --outDir lib/esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2"
+  }
 }

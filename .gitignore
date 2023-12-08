@@ -1,5 +1,4 @@
 node_modules/
 *.log
 packages/*/lib
-packages/*/esm
 .eslintcache

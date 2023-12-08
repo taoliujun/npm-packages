@@ -11,18 +11,18 @@
   "devDependencies": {
     "@changesets/changelog-git": "^0.2.0",
     "@changesets/cli": "^2.27.1",
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@tsconfig/create-react-app": "^1.0.2",
-    "@tsconfig/node16-strictest-esm": "^1.0.1",
     "@types/node": "^18.0.3",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "lint-staged": "^13.0.3",
-    "typescript": "^4.5.2"
+    "typescript": "^5.3.3"
   },
   "scripts": {
-    "version": "npm changesets version",
-    "release": "npm changesets publish",
+    "changelog": "npm exec changeset add",
+    "version": "npm exec changeset version",
+    "release": "npm exec changeset publish",
     "build": "pnpm run -r build",
     "lint:ts": "pnpm run -r lint:ts",
     "lint": "eslint packages --ext .ts,.js --cache",
