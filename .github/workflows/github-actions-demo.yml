@@ -11,10 +11,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: latest
-          cache: 'yarn'
+          cache: 'pnpm'
       - name: install dependencies
-        run: yarn install --frozen-lockfile
-      - name: build
-        run: yarn build
+        run: pnpm install
+      # - name: build
+      #   run: pnpm build
       # - name: publish
-      #   run: yarn release
+      #   run: pnpm release

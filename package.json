@@ -18,16 +18,14 @@
     "@types/node": "^18.0.3",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "typescript": "^4.5.2",
-    "yarn-deduplicate": "^5.0.0"
+    "typescript": "^4.5.2"
   },
   "scripts": {
-    "version": "pnpm changesets version",
-    "release": "pnpm changesets publish",
+    "version": "npm changesets version",
+    "release": "npm changesets publish",
     "build": "pnpm run -r build",
     "lint:ts": "pnpm run -r lint:ts",
     "lint": "eslint packages --ext .ts,.js --cache",
-    "postinstall": "yarn-deduplicate yarn.lock",
     "prepare": "husky install"
   },
   "dependencies": {

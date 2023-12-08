@@ -32,7 +32,7 @@
     "clean": "rm -rf lib/",
     "cjs": "tsc --module commonjs --outDir lib/cjs",
     "esm": "tsc --module es6 -d --declarationDir lib/types --outDir lib/esm",
-    "build": "yarn run clean && yarn run cjs && yarn run esm"
+    "build": "npm run clean && npm run cjs && npm run esm"
   },
   "bugs": {
     "url": "https://github.com/taoliujun/npm-packages/issues"

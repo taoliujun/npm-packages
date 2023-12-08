@@ -8,10 +8,7 @@
 
 ```shell
 # npm
-npm i -D webpack-plugin-noop-ts
-# yarn
-yarn add -D webpack-plugin-noop-ts
-
+npm add -D webpack-plugin-noop-ts
 ```
 
 ## Usage
@@ -21,12 +18,12 @@ import { Configuration } from 'webpack';
 import NoopWebpackPlugin from 'webpack-plugin-noop-ts';
 
 const webpackConfig = (): Configuration => {
-    const isWebpackDev = process.env.NODE_ENV === 'development';
+  const isWebpackDev = process.env.NODE_ENV === 'development';
 
-    return {
-        // your config
-        plugins: [...[isWebpackDev ? new YourPlugin() : NoopWebpackPlugin()]],
-    };
+  return {
+    // your config
+    plugins: [...[isWebpackDev ? new YourPlugin() : NoopWebpackPlugin()]],
+  };
 };
 ```
 

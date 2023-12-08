@@ -7,6 +7,5 @@
 ## 安装
 
 ```shell
-# yarn
-yarn add -D @taoliujun/utils
+npm add -D @taoliujun/utils
 ```
