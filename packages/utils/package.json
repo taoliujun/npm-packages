@@ -15,7 +15,7 @@
   "main": "lib/index.js",
   "files": [
     "lib",
-    "/*.md",
+    "*.md",
     "package.json"
   ],
   "repository": {
@@ -35,6 +35,7 @@
     "ahooks": "^3.4.0"
   },
   "devDependencies": {
+    "@tsconfig/create-react-app": "^2.0.1",
     "ahooks": "^3.4.0"
   }
 }
