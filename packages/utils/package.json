@@ -26,7 +26,7 @@
     "url": "https://github.com/taoliujun/npm-packages/issues"
   },
   "scripts": {
-    "lint:ts": "tsc -p ./tsconfig.json --noEmit",
+    "lint:ts": "tsc --noEmit",
     "clean": "rm -rf lib/",
     "build:esm": "tsc --module es6 -d --outDir lib",
     "build": "npm run clean && npm run build:esm"

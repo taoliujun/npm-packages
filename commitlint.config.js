@@ -8,18 +8,18 @@ const getRules = (input) => {
   return input;
 };
 
+const overrideRules = (ruleName, override, isOverride = false) => {
+  const a = defaultPlugin.rules[ruleName];
+  return {
+    [ruleName]: [a[0], a[1], isOverride ? override : [...getRules(a[2]), ...override]],
+  };
+};
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'type-enum': [
-      defaultPlugin.rules['type-enum'][0],
-      defaultPlugin.rules['type-enum'][1],
-      [...getRules(defaultPlugin.rules['type-enum'][2]), 'RELEASING'],
-    ],
-    'type-case': [
-      defaultPlugin.rules['type-case'][0],
-      defaultPlugin.rules['type-case'][1],
-      [...getRules(defaultPlugin.rules['type-case'][2]), 'upper-case'],
-    ],
+    ...overrideRules('type-enum', ['RELEASING']),
+    ...overrideRules('type-case', ['upper-case']),
+    ...overrideRules('subject-case', [], true),
   },
 };
