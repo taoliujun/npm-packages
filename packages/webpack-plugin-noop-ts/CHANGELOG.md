@@ -1,5 +1,11 @@
 # webpack-plugin-noop-ts
 
+## 2.1.1
+
+### Patch Changes
+
+- ba82998: chore: update package.json exports
+
 ## 2.1.0
 
 ### Minor Changes
