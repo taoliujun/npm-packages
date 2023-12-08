@@ -1,6 +1,6 @@
 {
   "name": "webpack-plugin-noop-ts",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "webpack noop plugin for typescript",
   "keywords": [
     "webpack",
@@ -16,7 +16,8 @@
   "types": "./lib/types/index.d.ts",
   "exports": {
     "import": "./lib/esm/index.js",
-    "require": "./lib/cjs/index.js"
+    "require": "./lib/cjs/index.js",
+    "types": "./lib/types/index.d.ts"
   },
   "files": [
     "lib",
