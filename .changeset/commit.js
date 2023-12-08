@@ -1,4 +1,4 @@
-import outdent from 'outdent';
+const outdent = require('outdent')
 
 const getAddMessage = async (changeset, options) => {
   const skipCI = (options === null || options === void 0 ? void 0 : options.skipCI) === "add" || (options === null || options === void 0 ? void 0 : options.skipCI) === true;
