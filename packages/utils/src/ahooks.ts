@@ -1,7 +1,7 @@
 import type { useRequest } from 'ahooks';
 
 /** ahook useRequest cache */
-export const ahookRequestCache = (cacheKey: string): any => {
+export const ahookRequestCache = (cacheKey: string) => {
   return {
     cacheKey,
     setCache: (data: unknown) => {

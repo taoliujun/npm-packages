@@ -10,9 +10,13 @@
   "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/utils",
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
-  "main": "lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    "import": "./lib/esm/index.js",
+    "require": "./lib/cjs/index.js"
+  },
   "files": [
     "lib",
     "*.md",
@@ -28,14 +32,15 @@
   "scripts": {
     "lint:ts": "tsc --noEmit",
     "clean": "rm -rf lib/",
-    "build:esm": "tsc --module es6 -d --outDir lib",
-    "build": "npm run clean && npm run build:esm"
+    "build:types": "tsc -d --emitDeclarationOnly --declarationDir lib/types",
+    "build:cjs": "tsc --module commonjs --moduleResolution node --outDir lib/cjs",
+    "build:esm": "tsc --outDir lib/esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types"
   },
-  "peerDependencies": {
-    "ahooks": "^3.4.0"
+  "optionalDependencies": {
+    "ahooks": "^3.7.8"
   },
   "devDependencies": {
-    "@tsconfig/create-react-app": "^2.0.1",
-    "ahooks": "^3.4.0"
+    "@tsconfig/node18": "^18.2.2"
   }
 }
