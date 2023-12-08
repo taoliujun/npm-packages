@@ -1,5 +1,11 @@
 # @taoliujun/utils
 
+## 2.1.2
+
+### Patch Changes
+
+- 826545d: chore: package.json
+
 ## 2.1.1
 
 ### Patch Changes
