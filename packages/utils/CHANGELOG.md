@@ -1,5 +1,11 @@
 # @taoliujun/utils
 
+## 2.0.1
+
+### Patch Changes
+
+- 203d82f: chore: package.json
+
 ## 2.0.0
 
 ### Major Changes
