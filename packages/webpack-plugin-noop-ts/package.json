@@ -1,7 +1,7 @@
 {
   "name": "webpack-plugin-noop-ts",
   "version": "1.3.0",
-  "description": "webpack plugin for typescript that does nothing",
+  "description": "webpack noop plugin for typescript",
   "keywords": [
     "webpack",
     "plugin",
