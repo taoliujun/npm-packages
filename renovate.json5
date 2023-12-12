@@ -5,15 +5,13 @@
   ],
   prConcurrentLimit: 0,
   prHourlyLimit: 0,
-  // lockFileMaintenance: {
-  //   enabled: true
-  // },
   packageRules: [
     {
       matchFileNames: [
         "**/package.json"
       ],
-      rangeStrategy: "update-lockfile"
+      // rangeStrategy: "update-lockfile",
+      rangeStrategy: "pin"
     }
   ],
 }
