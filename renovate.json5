@@ -4,5 +4,5 @@
     "config:recommended"
   ],
   prConcurrentLimit: 20,
-  prHourlyLimit: 0,
+  prHourlyLimit: 10,
 }
