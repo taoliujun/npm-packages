@@ -3,4 +3,6 @@
   "extends": [
     "config:recommended"
   ],
+prConcurrentLimit: 20,
+prHourlyLimit: 0
 }
