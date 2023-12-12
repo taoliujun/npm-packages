@@ -7,7 +7,7 @@
   prHourlyLimit: 10,
   packageRules: [
     {
-      matchFileNames: ["package.json"],
+      matchFileNames: ["**/package.json"],
       // rangeStrategy: "update-lockfile",
       rangeStrategy: "pin",
     }
