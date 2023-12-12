@@ -8,8 +8,8 @@
   packageRules: [
     {
       matchFileNames: ["**/package.json"],
-      // rangeStrategy: "update-lockfile",
-      rangeStrategy: "pin",
+      rangeStrategy: "update-lockfile",
+      // rangeStrategy: "pin",
     }
   ],
 }
