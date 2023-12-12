@@ -6,7 +6,7 @@
   prConcurrentLimit: 20,
   prHourlyLimit: 10,
   lockFileMaintenance: {
-    enabled: true
+    // enabled: true
   },
   packageRules: [
     {
