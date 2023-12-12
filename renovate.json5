@@ -5,5 +5,11 @@
   ],
   prConcurrentLimit: 20,
   prHourlyLimit: 10,
-  rangeStrategy: "update-lockfile"
+  packageRules: [
+    {
+      matchFileNames: ["package.json"],
+      // rangeStrategy: "update-lockfile",
+      rangeStrategy: "pin",
+    }
+  ],
 }
