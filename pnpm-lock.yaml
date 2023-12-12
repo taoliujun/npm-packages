@@ -9,92 +9,92 @@ importers:
   .:
     devDependencies:
       '@changesets/changelog-git':
-        specifier: ^0.2.0
+        specifier: 0.2.0
         version: 0.2.0
       '@changesets/cli':
-        specifier: ^2.27.1
+        specifier: 2.27.1
         version: 2.27.1
       '@commitlint/cli':
-        specifier: ^18.4.3
+        specifier: 18.4.3
         version: 18.4.3(typescript@5.3.3)
       '@commitlint/config-conventional':
-        specifier: ^18.4.3
+        specifier: 18.4.3
         version: 18.4.3
       '@taoliujun/eslint-config':
         specifier: workspace:^
         version: link:packages/eslint
       '@types/node':
-        specifier: ^20.10.4
+        specifier: 20.10.4
         version: 20.10.4
       husky:
-        specifier: ^8.0.3
+        specifier: 8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^15.2.0
+        specifier: 15.2.0
         version: 15.2.0
       typescript:
-        specifier: ^5.3.3
+        specifier: 5.3.3
         version: 5.3.3
 
   packages/eslint:
     dependencies:
       '@babel/core':
-        specifier: ^7.23.5
+        specifier: 7.23.6
         version: 7.23.6
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: 7.23.3
         version: 7.23.3(@babel/core@7.23.6)(eslint@8.55.0)
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.13.2
+        specifier: 6.14.0
         version: 6.14.0(@typescript-eslint/parser@6.14.0)(eslint@8.55.0)(typescript@5.3.3)
       '@typescript-eslint/parser':
-        specifier: ^6.13.2
+        specifier: 6.14.0
         version: 6.14.0(eslint@8.55.0)(typescript@5.3.3)
       eslint:
-        specifier: ^8.55.0
+        specifier: 8.55.0
         version: 8.55.0
       eslint-config-airbnb-base:
-        specifier: ^15.0.0
+        specifier: 15.0.0
         version: 15.0.0(eslint-plugin-import@2.29.0)(eslint@8.55.0)
       eslint-config-prettier:
-        specifier: ^9.1.0
+        specifier: 9.1.0
         version: 9.1.0(eslint@8.55.0)
       eslint-import-resolver-typescript:
-        specifier: ^3.6.1
+        specifier: 3.6.1
         version: 3.6.1(@typescript-eslint/parser@6.14.0)(eslint-plugin-import@2.29.0)(eslint@8.55.0)
       eslint-plugin-deprecation:
-        specifier: ^2.0.0
+        specifier: 2.0.0
         version: 2.0.0(eslint@8.55.0)(typescript@5.3.3)
       eslint-plugin-import:
-        specifier: ^2.29.0
+        specifier: 2.29.0
         version: 2.29.0(@typescript-eslint/parser@6.14.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
       eslint-plugin-prettier:
-        specifier: ^5.0.1
+        specifier: 5.0.1
         version: 5.0.1(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.1)
       eslint-plugin-react:
-        specifier: ^7.33.2
+        specifier: 7.33.2
         version: 7.33.2(eslint@8.55.0)
       eslint-plugin-react-hooks:
-        specifier: ^4.6.0
+        specifier: 4.6.0
         version: 4.6.0(eslint@8.55.0)
       prettier:
-        specifier: ^3.1.0
+        specifier: 3.1.1
         version: 3.1.1
 
   packages/utils:
     optionalDependencies:
       ahooks:
-        specifier: ^3.7.8
+        specifier: 3.7.8
         version: 3.7.8(react@18.2.0)
     devDependencies:
       '@tsconfig/node18':
-        specifier: ^18.2.2
+        specifier: 18.2.2
         version: 18.2.2
 
   packages/webpack-plugin-noop-ts:
     devDependencies:
       '@tsconfig/node18':
-        specifier: ^18.2.2
+        specifier: 18.2.2
         version: 18.2.2
 
 packages:
