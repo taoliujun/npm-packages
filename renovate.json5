@@ -14,7 +14,7 @@
   //       "**/package.json"
   //     ],
   //     rangeStrategy: "update-lockfile",
-  //     // rangeStrategy: "pin",
+  //     rangeStrategy: "pin",
   //   }
   // ],
 }
