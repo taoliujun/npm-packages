@@ -9,7 +9,7 @@
   packageRules: [
     {
       matchFileNames: ["packages/*/package.json"],
-      matchPackageNames: ["node"],
+      matchPackageNames: ["node", "@types/node"],
       enabled: false
     }
   ]
