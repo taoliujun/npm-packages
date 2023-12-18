@@ -8,8 +8,10 @@
   rangeStrategy: "bump",
   packageRules: [
     {
-      matchFileNames: ["packages/*/package.json"],
-      matchPackageNames: ["node", "@types/node"],
+      matchFileNames: ["**/package.json"],
+      matchPackageNames: ["node"],
+      matchManagers: ["npm"],
+      matchDepTypes: [ "engines" ],
       enabled: false
     }
   ]
