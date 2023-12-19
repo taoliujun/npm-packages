@@ -15,11 +15,9 @@
   },
   "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
   "exports": {
     "types": "./lib/types/index.d.ts",
-    "require": "./lib/cjs/index.js",
-    "import": "./lib/esm/index.js"
+    "require": "./lib/cjs/index.js"
   },
   "files": [
     "lib",
@@ -37,9 +35,8 @@
     "lint:ts": "tsc --noEmit",
     "clean": "rm -rf lib/",
     "build:types": "tsc -d --emitDeclarationOnly --declarationDir lib/types",
-    "build:cjs": "tsc --module commonjs --moduleResolution node --outDir lib/cjs",
-    "build:esm": "tsc --outDir lib/esm",
-    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types"
+    "build:cjs": "tsc --module node16 --moduleResolution node16 --outDir lib/cjs",
+    "build": "npm run clean && npm run build:cjs && npm run build:types"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2"
