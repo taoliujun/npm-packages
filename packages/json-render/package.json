@@ -1,0 +1,49 @@
+{
+  "name": "json-render",
+  "private": true,
+  "version": "1.0.0",
+  "description": "pretty json render",
+  "keywords": [
+    "json",
+    "json render",
+    "json pretty",
+    "json html"
+  ],
+  "author": "taoliujun <taoliujun@qq.com>",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/json-render",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "types": "./lib/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "exports": {
+    "types": "./lib/types/index.d.ts",
+    "require": "./lib/cjs/index.js",
+    "import": "./lib/esm/index.js"
+  },
+  "files": [
+    "lib",
+    "*.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoliujun/npm-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taoliujun/npm-packages/issues"
+  },
+  "scripts": {
+    "lint:ts": "tsc --noEmit",
+    "clean": "rm -rf lib/",
+    "build:types": "tsc -d --emitDeclarationOnly --declarationDir lib/types",
+    "build:cjs": "tsc --module commonjs --moduleResolution node --outDir lib/cjs",
+    "build:esm": "tsc --outDir lib/esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2"
+  }
+}
