@@ -1,6 +1,6 @@
 {
   "name": "webpack-plugin-noop-ts",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "webpack noop plugin for typescript",
   "keywords": [
     "webpack",

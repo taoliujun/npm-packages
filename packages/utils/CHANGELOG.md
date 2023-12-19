@@ -1,5 +1,11 @@
 # @taoliujun/utils
 
+## 2.1.3
+
+### Patch Changes
+
+- 803ddeb: chore: remove esm
+
 ## 2.1.2
 
 ### Patch Changes
