@@ -1,5 +1,11 @@
 # webpack-plugin-noop-ts
 
+## 2.1.5
+
+### Patch Changes
+
+- 5eb4047: chore: support esm
+
 ## 2.1.4
 
 ### Patch Changes
