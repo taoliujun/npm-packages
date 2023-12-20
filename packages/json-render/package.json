@@ -40,10 +40,11 @@
   "scripts": {
     "lint:ts": "tsc --noEmit",
     "clean": "rm -rf lib/",
+    "build:readme": "cp -f ./README.zh_CN.md ./README.md",
     "build:types": "tsc -d --emitDeclarationOnly --declarationDir lib/types",
     "build:cjs": "tsc --module CommonJS --moduleResolution Node --outDir lib/cjs",
     "build:esm": "tsc --module ES6 --moduleResolution Bundler --outDir lib/esm",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types"
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types && npm run build:readme"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2"
