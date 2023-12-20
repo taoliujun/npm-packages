@@ -16,5 +16,3 @@ export const isBoolean = (value: unknown) => getValueType(value) === 'Boolean';
 export const isArray = (value: unknown) => getValueType(value) === 'Array';
 
 export const isObject = (value: unknown) => getValueType(value) === 'Object';
-
-export const isFunction = (value: unknown) => getValueType(value) === 'Function';

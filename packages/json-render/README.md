@@ -2,7 +2,25 @@
 
 [![npm](https://img.shields.io/npm/v/@taoliujun/utils.svg)](https://www.npmjs.com/package/@taoliujun/utils)
 
-一个json美化渲染器，用于将json数据渲染成html。支持在原生javascript、react、vue等框架中使用。
+将json数据渲染成html。支持在原生javascript或react、vue等框架中使用。
+
+例如将以下json数据，渲染成可读性强的html。
+
+```json
+// json
+{
+    "company": "Hello Wang",
+    "age": 23,
+    "isDeveloper": true,
+    "address": {
+        "country": "China",
+        "city": "Beijing"
+    },
+    "skills": ["React", "Vue", "Angular"]
+}
+```
+
+demo shown placeholder
 
 ## 安装
 
@@ -18,23 +36,23 @@ npm add json-render
 import jsonRender from 'json-render';
 
 jsonRender(document.querySelector('#container'), {
-  name: 'hello world',
+    name: 'hello world',
 });
 ```
 
-### 文字通用颜色配置
+### 定制渲染的颜色
 
 ```javascript
 import jsonRender from 'json-render';
 
 jsonRender(
-  document.querySelector('#container'),
-  {
-    name: 'hello world',
-  },
-  {
-    textColor: 'green',
-  },
+    document.querySelector('#container'),
+    {
+        name: 'hello world',
+    },
+    {
+        valueColor: 'green',
+    },
 );
 ```
 
@@ -56,15 +74,16 @@ jsonRender(
 
 | 参数                 | 说明                                 | 类型        | 默认值 |
 | -------------------- | ------------------------------------ | ----------- | ------ |
-| valueColors          | 变量的颜色                           | ValueColors | -      |
-| textColor            | 普通文字颜色                         | string      | -      |
 | activeBgColor        | 项目激活时，整行区域的背景色         | string      | -      |
 | activeHighLightColor | 项目激活时，文字区域的背景色         | string      | -      |
 | levelHighLightColor  | 项目激活时，该项目所有父级键名的颜色 | string      | -      |
+| labelColor           | 键名的文本颜色                       | string      | -      |
+| valueColor           | 键值的文本颜色                       | string      | -      |
+| valueColors          | 不同变量类型的文本颜色               | ValueColors | -      |
 
 ### ValueColors
 
-变量的颜色，值应该是颜色。
+不同变量类型的文本颜色
 
 | 参数        | 说明                    | 类型   | 默认值 |
 | ----------- | ----------------------- | ------ | ------ |

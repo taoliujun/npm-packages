@@ -1,11 +1,12 @@
 {
   "name": "json-render",
   "private": true,
-  "version": "1.0.2",
-  "description": "pretty json render",
+  "version": "1.0.0",
+  "description": "json beautiful render",
   "keywords": [
     "json",
     "json render",
+    "json beautiful",
     "json pretty",
     "json html"
   ],
@@ -17,6 +18,7 @@
   },
   "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.js",
+  "_debug_main": "./src/index.ts",
   "exports": {
     "types": "./lib/types/index.d.ts",
     "default": "./lib/cjs/index.js",

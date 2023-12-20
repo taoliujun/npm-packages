@@ -1,26 +1,33 @@
-import { ROOT_KEY } from './constant';
-import { generateSingleItem, generateWrapperItem } from './dom';
+import { generateSingleItem, generateWrapperItem } from './item';
+import { renderStyle } from './style';
 import type { Options } from './types';
-import { getValueType, isArray, isObject } from './utils/valueType';
+import { clearDomChild } from './utils/dom';
+import { isArray, isObject } from './utils/valueType';
 
-const render = (keyName: string, json: object, options?: Partial<Options>): HTMLElement => {
-    const jsonEntries = Object.entries(json);
-    const result = jsonEntries.map(([key, value], index) => {
+const render = (keyName: string, values: object, opt?: Partial<{ isLast: boolean }>): HTMLElement => {
+    const valueEntries = Object.entries(values);
+    const isArrayType = isArray(values);
+
+    const result = valueEntries.map(([key, value], index) => {
+        const isLast = index === valueEntries.length - 1;
         if (isObject(value) || isArray(value)) {
-            return render(key, value, options);
+            return render(isArrayType ? '' : key, value, { isLast });
         }
-
-        return generateSingleItem(key, value, {
-            isLast: index >= jsonEntries.length - 1,
+        return generateSingleItem(isArrayType ? '' : key, value, {
+            isLast,
         });
     });
 
-    return generateWrapperItem(getValueType(json) as 'object', keyName, result);
+    return generateWrapperItem(keyName, result, {
+        isArrayType,
+        isLast: opt?.isLast,
+    });
 };
 
-const jsonRender = (el: HTMLElement | null | undefined, json: object, options?: Partial<Options>) => {
-    const renderResult = render(ROOT_KEY, json, options);
-    el?.appendChild(renderResult);
+const jsonRender = (el: HTMLElement | null | undefined, jsonValue: object, options?: Partial<Options>) => {
+    clearDomChild(el);
+    el?.appendChild(renderStyle(options));
+    el?.appendChild(render('', jsonValue, { isLast: true }));
 };
 
 export { jsonRender };
