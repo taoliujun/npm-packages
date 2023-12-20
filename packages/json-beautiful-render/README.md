@@ -1,8 +1,8 @@
-# json-render
+# json-beautiful-render
 
 [中文](./README.zh_CN.md) | [English](./README.en_US.md)
 
-[![npm](https://img.shields.io/npm/v/json-render.svg)](https://www.npmjs.com/package/json-render)
+[![npm](https://img.shields.io/npm/v/json-beautiful-render.svg)](https://www.npmjs.com/package/json-beautiful-render)
 
 将json数据渲染成html。支持在原生javascript或react、vue等框架中使用。
 
@@ -13,7 +13,7 @@
 # 安装
 
 ```shell
-npm add json-render
+npm add json-beautiful-render
 ```
 
 # 使用
@@ -21,7 +21,7 @@ npm add json-render
 ## 基础使用
 
 ```javascript
-import jsonRender from 'json-render';
+import jsonRender from 'json-beautiful-render';
 
 jsonRender(document.querySelector('#container'), {
     name: 'hello world',
@@ -31,7 +31,7 @@ jsonRender(document.querySelector('#container'), {
 ## 定制渲染的颜色
 
 ```javascript
-import jsonRender from 'json-render';
+import jsonRender from 'json-beautiful-render';
 
 jsonRender(
     document.querySelector('#container'),

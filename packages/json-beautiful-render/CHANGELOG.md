@@ -1,4 +1,4 @@
-# json-render
+# json-beautiful-render
 
 ## 1.0.0
 

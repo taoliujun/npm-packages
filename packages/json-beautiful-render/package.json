@@ -1,5 +1,5 @@
 {
-  "name": "json-render",
+  "name": "json-beautiful-render",
   "version": "1.0.0",
   "description": "json beautiful render",
   "keywords": [
@@ -10,7 +10,7 @@
     "json html"
   ],
   "author": "taoliujun <taoliujun@qq.com>",
-  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/json-render",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/json-beautiful-render",
   "license": "MIT",
   "engines": {
     "node": ">=18"
