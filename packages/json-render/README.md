@@ -1,6 +1,6 @@
 # json-render
 
-[![npm](https://img.shields.io/npm/v/@taoliujun/utils.svg)](https://www.npmjs.com/package/@taoliujun/utils)
+[![npm](https://img.shields.io/npm/v/json-render.svg)](https://www.npmjs.com/package/json-render)
 
 将json数据渲染成html。支持在原生javascript或react、vue等框架中使用。
 
