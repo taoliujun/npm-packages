@@ -4,23 +4,9 @@
 
 将json数据渲染成html。支持在原生javascript或react、vue等框架中使用。
 
-例如将以下json数据，渲染成可读性强的html。
+效果预览如下。
 
-```json
-// json
-{
-    "company": "Hello Wang",
-    "age": 23,
-    "isDeveloper": true,
-    "address": {
-        "country": "China",
-        "city": "Beijing"
-    },
-    "skills": ["React", "Vue", "Angular"]
-}
-```
-
-demo shown placeholder
+![image](https://github.com/taoliujun/npm-packages/assets/5689134/50883b5c-150a-4412-ab1e-8961987818aa)
 
 # 安装
 
