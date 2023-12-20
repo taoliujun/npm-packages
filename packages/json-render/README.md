@@ -22,15 +22,15 @@
 
 demo shown placeholder
 
-## 安装
+# 安装
 
 ```shell
 npm add json-render
 ```
 
-## 使用
+# 使用
 
-### 基础使用
+## 基础使用
 
 ```javascript
 import jsonRender from 'json-render';
@@ -40,7 +40,7 @@ jsonRender(document.querySelector('#container'), {
 });
 ```
 
-### 定制渲染的颜色
+## 定制渲染的颜色
 
 ```javascript
 import jsonRender from 'json-render';
@@ -56,9 +56,9 @@ jsonRender(
 );
 ```
 
-## API
+# API
 
-### jsonRender(el, json, options)
+## jsonRender(el, json, options)
 
 渲染的方法
 
@@ -68,7 +68,7 @@ jsonRender(
 | json    | JSON对象   | Object  | -      |
 | options | 配置       | Options | -      |
 
-### Options
+## Options
 
 配置项
 
@@ -81,7 +81,7 @@ jsonRender(
 | valueColor           | 键值的文本颜色                       | string      | -      |
 | valueColors          | 不同变量类型的文本颜色               | ValueColors | -      |
 
-### ValueColors
+## ValueColors
 
 不同变量类型的文本颜色
 
