@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  schedule: "at 02:00am every day",
   prConcurrentLimit: 0,
   prHourlyLimit: 0,
   rangeStrategy: "bump",
