@@ -3,7 +3,8 @@
   "extends": [
     "config:recommended"
   ],
-  schedule: "at 02:00am every day",
+  timezone: "Asia/Shanghai",
+  schedule: "at 02:00 am",
   prConcurrentLimit: 0,
   prHourlyLimit: 0,
   rangeStrategy: "bump",
