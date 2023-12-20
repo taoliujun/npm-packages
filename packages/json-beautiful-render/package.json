@@ -1,6 +1,6 @@
 {
   "name": "json-beautiful-render",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "json beautiful render",
   "keywords": [
     "json",
@@ -20,9 +20,9 @@
   "_debug_main": "./src/index.ts",
   "exports": {
     "types": "./lib/types/index.d.ts",
-    "default": "./lib/cjs/index.js",
     "require": "./lib/cjs/index.js",
-    "export": "./lib/esm/index.js"
+    "export": "./lib/esm/index.js",
+    "default": "./lib/cjs/index.js"
   },
   "files": [
     "lib",
