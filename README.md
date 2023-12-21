@@ -1,6 +1,6 @@
 # npm-packages
 
-It's npm packages
+It is a pnpm monorepo repo.
 
 ## How to release a package?
 
