@@ -1,5 +1,5 @@
 import { ClassNameEnum, generateClassName } from './style';
-import { getValueType, isBoolean, isNull, isNumber, isString } from './utils/valueType';
+import { getValueType, isBoolean, isNull, isNumber, isString } from '../utils/valueType';
 
 /** create a wrapper for an item  */
 export const generateSingleItem = (

@@ -4,11 +4,15 @@
 
 [![npm](https://img.shields.io/npm/v/json-beautiful-render.svg)](https://www.npmjs.com/package/json-beautiful-render)
 
-将json数据渲染成美化的html，在原生javascript或react、vue等框架中使用。
+支持两个功能：
 
-效果预览如下。
+-   将json数据美化成html，在原生javascript或react、vue等框架中使用。
 
-![image](https://github.com/taoliujun/npm-packages/assets/5689134/50883b5c-150a-4412-ab1e-8961987818aa)
+![image](./assets/readme/demo1.png)
+
+-   将json数据格式化，加入换行符、缩进符等，方便阅读。
+
+![image](./assets/readme/demo2.png)
 
 # 安装
 
@@ -23,7 +27,7 @@ npm add json-beautiful-render
 ```javascript
 import jsonRender from 'json-beautiful-render';
 
-jsonRender(document.querySelector('#container'), {
+const dom = jsonRender(document.querySelector('#container'), {
     name: 'hello world',
 });
 ```
@@ -44,19 +48,30 @@ jsonRender(
 );
 ```
 
+## 将json数据格式化，加入换行符、缩进符等，方便阅读。
+
+```javascript
+import { jsonRenderNoStyle } from 'json-beautiful-render';
+
+const result = jsonRenderNoStyle(document.querySelector('#your_textarea'), { name: 'hello world' });
+console.log(result);
+```
+
 # API
 
-## jsonRender(el, json, options)
+## jsonRender
 
-渲染的方法
+`(el, json, options) => HTMLElement`
 
-| 参数    | 说明       | 类型    | 默认值 |
-| ------- | ---------- | ------- | ------ |
-| el      | 挂载的容器 | Element | -      |
-| json    | JSON数据   | Object  | -      |
-| options | 配置       | Options | -      |
+美化渲染，如果el是HTMLElement，则将渲染结果挂载到el上。
 
-## Options
+| 参数    | 说明       | 类型                             | 默认值 |
+| ------- | ---------- | -------------------------------- | ------ |
+| el      | 挂载的容器 | HTMLElement \| null \| undefined | -      |
+| json    | JSON数据   | Object                           | -      |
+| options | 配置       | Options                          | -      |
+
+### Options
 
 配置项
 
@@ -69,7 +84,7 @@ jsonRender(
 | valueColor           | 键值的文本颜色                       | string      | -      |
 | valueColors          | 不同变量类型的文本颜色               | ValueColors | -      |
 
-## ValueColors
+### ValueColors
 
 不同变量类型的文本颜色
 
@@ -78,6 +93,26 @@ jsonRender(
 | string      | 字符串                  | string | -      |
 | number      | 数值                    | string | -      |
 | specialness | 特殊值，如boolean、null | string | -      |
+
+## jsonRenderNoStyle
+
+`(el, json, options) => string`
+
+无样式的格式化渲染，如果el是HTMLElement，则将渲染结果挂载到el容器上。
+
+| 参数    | 说明       | 类型                             | 默认值 |
+| ------- | ---------- | -------------------------------- | ------ |
+| el      | 挂载的容器 | HTMLElement \| null \| undefined | -      |
+| json    | JSON数据   | Object                           | -      |
+| options | 配置       | Options                          | -      |
+
+### Options
+
+配置项
+
+| 参数   | 说明     | 类型   | 默认值 |
+| ------ | -------- | ------ | ------ |
+| indent | 缩进字符 | string | -      |
 
 # FAQ
 
