@@ -1,5 +1,11 @@
 # json-beautiful-render
 
+## 1.1.0
+
+### Minor Changes
+
+- f364407: feat: add json render without style
+
 ## 1.0.1
 
 ### Patch Changes
