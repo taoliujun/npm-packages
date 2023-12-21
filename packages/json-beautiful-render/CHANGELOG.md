@@ -1,5 +1,11 @@
 # json-beautiful-render
 
+## 1.1.2
+
+### Patch Changes
+
+- a66f94d: doc: update readme
+
 ## 1.1.1
 
 ### Patch Changes
