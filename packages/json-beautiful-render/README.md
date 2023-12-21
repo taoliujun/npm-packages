@@ -1,5 +1,3 @@
-# json-beautiful-render
-
 [中文](./README.zh_CN.md) | [English](./README.en_US.md)
 
 [![npm](https://img.shields.io/npm/v/json-beautiful-render.svg)](https://www.npmjs.com/package/json-beautiful-render)
@@ -8,21 +6,21 @@
 
 -   将json数据美化成html，在原生javascript或react、vue等框架中使用。
 
-![image](./assets/readme/demo1.png)
+![image](https://cdn.jsdelivr.net/gh/taoliujun/npm-packages/packages/json-beautiful-render/assets/readme/demo1.png)
 
 -   将json数据格式化，加入换行符、缩进符等，方便阅读。
 
-![image](./assets/readme/demo2.png)
+![image](https://cdn.jsdelivr.net/gh/taoliujun/npm-packages/packages/json-beautiful-render/assets/readme/demo2.png)
 
-# 安装
+## 安装
 
 ```bash
 npm add json-beautiful-render
 ```
 
-# 使用
+## 使用
 
-## 基础使用
+-   基础使用
 
 ```javascript
 import jsonRender from 'json-beautiful-render';
@@ -32,7 +30,7 @@ const dom = jsonRender(document.querySelector('#container'), {
 });
 ```
 
-## 定制渲染的颜色
+-   定制渲染的颜色
 
 ```javascript
 import jsonRender from 'json-beautiful-render';
@@ -48,7 +46,7 @@ jsonRender(
 );
 ```
 
-## 将json数据格式化，加入换行符、缩进符等，方便阅读。
+-   将json数据格式化，加入换行符、缩进符等，方便阅读。
 
 ```javascript
 import { jsonRenderNoStyle } from 'json-beautiful-render';
@@ -57,9 +55,9 @@ const result = jsonRenderNoStyle(document.querySelector('#your_textarea'), { nam
 console.log(result);
 ```
 
-# API
+## API
 
-## jsonRender
+### jsonRender
 
 `(el, json, options) => HTMLElement`
 
@@ -71,7 +69,7 @@ console.log(result);
 | json    | JSON数据   | Object                           | -      |
 | options | 配置       | Options                          | -      |
 
-### Options
+#### Options
 
 配置项
 
@@ -84,7 +82,7 @@ console.log(result);
 | valueColor           | 键值的文本颜色                       | string      | -      |
 | valueColors          | 不同变量类型的文本颜色               | ValueColors | -      |
 
-### ValueColors
+#### ValueColors
 
 不同变量类型的文本颜色
 
@@ -94,7 +92,7 @@ console.log(result);
 | number      | 数值                    | string | -      |
 | specialness | 特殊值，如boolean、null | string | -      |
 
-## jsonRenderNoStyle
+### jsonRenderNoStyle
 
 `(el, json, options) => string`
 
@@ -106,7 +104,7 @@ console.log(result);
 | json    | JSON数据   | Object                           | -      |
 | options | 配置       | Options                          | -      |
 
-### Options
+#### Options
 
 配置项
 
@@ -114,9 +112,9 @@ console.log(result);
 | ------ | -------- | ------ | ------ |
 | indent | 缩进字符 | string | -      |
 
-# FAQ
+## FAQ
 
-## 渲染哪些类型的值？
+### 渲染哪些类型的值？
 
 支持渲染标准的json值如`"123"`、`123`，其余则渲染其类型如`Date`、`Function`等。
 
