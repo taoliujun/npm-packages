@@ -16,9 +16,9 @@ interface Options {
         Record<
             /** 字符串 */
             | 'string'
-            /** 数字 */
+            /** 数值 */
             | 'number'
-            /** 特殊值的颜色，如boolean、null */
+            /** 特殊值，如boolean、null */
             | 'specialness',
             Color
         >

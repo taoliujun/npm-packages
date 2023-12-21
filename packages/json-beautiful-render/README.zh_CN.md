@@ -4,7 +4,7 @@
 
 [![npm](https://img.shields.io/npm/v/json-beautiful-render.svg)](https://www.npmjs.com/package/json-beautiful-render)
 
-将json数据渲染成html。支持在原生javascript或react、vue等框架中使用。
+将json数据渲染成美化的html，在原生javascript或react、vue等框架中使用。
 
 效果预览如下。
 
@@ -12,7 +12,7 @@
 
 # 安装
 
-```shell
+```bash
 npm add json-beautiful-render
 ```
 
@@ -53,7 +53,7 @@ jsonRender(
 | 参数    | 说明       | 类型    | 默认值 |
 | ------- | ---------- | ------- | ------ |
 | el      | 挂载的容器 | Element | -      |
-| json    | JSON对象   | Object  | -      |
+| json    | JSON数据   | Object  | -      |
 | options | 配置       | Options | -      |
 
 ## Options
@@ -76,5 +76,13 @@ jsonRender(
 | 参数        | 说明                    | 类型   | 默认值 |
 | ----------- | ----------------------- | ------ | ------ |
 | string      | 字符串                  | string | -      |
-| number      | 数字                    | string | -      |
-| specialness | 特殊值，如null、boolean | string | -      |
+| number      | 数值                    | string | -      |
+| specialness | 特殊值，如boolean、null | string | -      |
+
+# FAQ
+
+## 渲染哪些类型的值？
+
+支持渲染标准的json值如`"123"`、`123`，其余则渲染其类型如`Date`、`Function`等。
+
+> 值（value）可以是双引号括起来的字符串（string）、数值(number)、true、false、 null、对象（object）或者数组（array）。这些结构可以嵌套。[详情见>>](https://www.json.org/json-zh.html)

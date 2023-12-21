@@ -1,5 +1,5 @@
 import { ClassNameEnum, generateClassName } from './style';
-import { getValueType, isBoolean, isNull, isNumber, isString, isUndefined } from './utils/valueType';
+import { getValueType, isBoolean, isNull, isNumber, isString } from './utils/valueType';
 
 /** create a wrapper for an item  */
 export const generateSingleItem = (
@@ -34,7 +34,7 @@ export const generateSingleItem = (
     } else if (isNumber(value)) {
         valueDom.innerText = `${value}${comma}`;
         valueDom.classList.add(generateClassName(ClassNameEnum.SINGLE_NUMBER));
-    } else if (isNull(value) || isUndefined(value) || isBoolean(value)) {
+    } else if (isNull(value) || isBoolean(value)) {
         valueDom.innerText = `${value}${comma}`;
         valueDom.classList.add(generateClassName(ClassNameEnum.SINGLE_SPECIALNESS));
     } else {

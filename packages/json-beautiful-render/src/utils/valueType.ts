@@ -5,8 +5,6 @@ export const getValueType = (value: unknown) => {
 
 export const isNull = (value: unknown) => getValueType(value) === 'Null';
 
-export const isUndefined = (value: unknown) => getValueType(value) === 'Undefined';
-
 export const isString = (value: unknown) => getValueType(value) === 'String';
 
 export const isNumber = (value: unknown) => getValueType(value) === 'Number';
