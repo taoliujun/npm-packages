@@ -1,5 +1,11 @@
 # json-beautiful-render
 
+## 1.1.3
+
+### Patch Changes
+
+- c771c98: fix: keep sing label words one line
+
 ## 1.1.2
 
 ### Patch Changes
