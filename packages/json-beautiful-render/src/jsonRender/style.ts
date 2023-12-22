@@ -70,6 +70,8 @@ export const renderStyle = (options?: Partial<Options>): HTMLElement => {
         }
         .${generateClassName(ClassNameEnum.ITEMS_BEGIN)} {
           color: ${labelColor};
+          word-break: keep-all;
+          white-space: nowrap;
         }
         .${generateClassName(ClassNameEnum.ITEMS_END)} {
           color: ${labelColor};
@@ -88,7 +90,7 @@ export const renderStyle = (options?: Partial<Options>): HTMLElement => {
       }
       .${generateClassName(ClassNameEnum.SINGLE_CONTENT)} {
         display: inline-flex;
-        align-items: center;
+        align-items: baseline;
       }
       .${generateClassName(ClassNameEnum.SINGLE_WRAPPER)}.active,
       .${generateClassName(ClassNameEnum.SINGLE_WRAPPER)}:hover {
@@ -101,6 +103,8 @@ export const renderStyle = (options?: Partial<Options>): HTMLElement => {
       }
       .${generateClassName(ClassNameEnum.SINGLE_LABEL)} {
         color: ${labelColor};
+        word-break: keep-all;
+        white-space: nowrap;
       }
       .${generateClassName(ClassNameEnum.SINGLE_VALUE)} {
         color: ${valueColor};
