@@ -2,7 +2,7 @@ name: check pull request
 run-name: check for pr #${{ github.event.pull_request.number }}
 on:
     pull_request:
-        types: [opened, synchronize, reopened]
+        types: [opened, edited, synchronize, reopened]
     # TODO remove next type
     issue_comment:
         types: [created, edited]
