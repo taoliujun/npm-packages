@@ -12,8 +12,8 @@ jobs:
         steps:
             - name: Init repo
               uses: actions/checkout@v4
-            #   with:
-            #       ref: ${{github.head_ref}}
+              with:
+                  ref: ${{github.head_ref}}
 
             - name: Get current branch
               shell: bash
