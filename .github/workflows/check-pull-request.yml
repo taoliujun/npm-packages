@@ -6,8 +6,11 @@ on:
     # TODO remove next type
     issue_comment:
         types: [created, edited]
+permissions:
+    issues: read | write | none
+    pull_requests: read
 jobs:
-    check:
+    init:
         runs-on: ubuntu-latest
         steps:
             - run: echo "hello"
