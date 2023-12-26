@@ -2,6 +2,7 @@ name: check pull request
 run-name: 'check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
+        # TODO remove edited
         types: [opened, edited, synchronize, reopened]
 permissions:
     issues: write
@@ -49,6 +50,8 @@ jobs:
         needs: [init]
         steps:
             - run: echo "this is eslint"
+            - name: Init repo
+              uses: actions/checkout@v4
             - run: echo "Current branch is $(git rev-parse --abbrev-ref HEAD)"
 
     typescript:
