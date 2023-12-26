@@ -1,11 +1,8 @@
 name: check pull request
-run-name: 'check pull request #${{ github.event.pull_request.number || github.event.issue.number }}'
+run-name: 'check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
         types: [opened, edited, synchronize, reopened]
-    # TODO remove next type
-    issue_comment:
-        types: [created, edited]
 permissions:
     issues: write
     pull-requests: read
