@@ -90,9 +90,7 @@ Text colors for different variable types
 | ----------- | ------------------------------------- | ------ | ------- |
 | string      | string                                | string | -       |
 | number      | numeric                               | string | -       |
-| specialness | Special values, such as boolean, null |
-
-| string | - |
+| specialness | Special values, such as boolean, null | string | -       |
 
 ### jsonRenderNoStyle
 
