@@ -14,8 +14,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: echo "this is init-repo"
-            - uses: actions/checkout@latest
-            # - uses: actions/setup-node@latest
+            - uses: actions/checkout@main
+            # - uses: actions/setup-node@main
             #   with:
             #       node-version: latest
             - run: echo "base_ref is ${{github.base_ref}}"
