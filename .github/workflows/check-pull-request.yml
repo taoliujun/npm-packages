@@ -3,9 +3,9 @@ run-name: check for pr #${{ github.event.pull_request.number }}
 on:
     pull_request:
         types: [opened, synchronize, reopened]
-    # TODO remove pull_request_review_comment
-    pull_request_review_comment:
-        types: [created]
+    # TODO remove next type
+    issue_comment:
+        types: [created, edited]
 jobs:
     check:
         runs-on: ubuntu-latest
