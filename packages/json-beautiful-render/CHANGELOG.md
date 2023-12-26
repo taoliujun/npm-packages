@@ -1,5 +1,11 @@
 # json-beautiful-render
 
+## 1.1.4
+
+### Patch Changes
+
+- 5d2cbdd: docs: add README.en_US
+
 ## 1.1.3
 
 ### Patch Changes
