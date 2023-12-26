@@ -7,10 +7,15 @@ on:
     issue_comment:
         types: [created, edited]
 permissions:
-    issues: read | write | none
-    pull_requests: read
+    issues: write
+    pull-requests: read
 jobs:
-    init:
+    init-repo:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "hello"
+            - run: echo "this is init-repo"
+    test1:
+        runs-on: ubuntu-latest
+        needs: init-repo
+        steps:
+            - run: echo "this is test1"
