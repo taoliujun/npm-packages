@@ -10,18 +10,43 @@ permissions:
     issues: write
     pull-requests: read
 jobs:
-    init-repo:
+    init:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "this is init-repo"
-            - uses: actions/checkout@main
-            # - uses: actions/setup-node@main
-            #   with:
-            #       node-version: latest
-            - run: echo "base_ref is ${{github.base_ref}}"
-            - run: echo "head_ref is ${{github.head_ref}}"
+            - name: init repo
+              uses: actions/checkout@main
+
+            - name: git checkout ${{github.head_ref}}
+              run: git checkout ${{github.head_ref}}
+
+            - name: node
+              uses: actions/setup-node@main
+              with:
+                  node-version: latest
+
+            - name: pnpm
+              uses: pnpm/action-setup@main
+              with:
+                  version: 8
+                  run_install: false
+
+            - name: Get pnpm store directory
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+            - uses: actions/cache@main
+              name: Setup pnpm cache
+              with:
+                  path: ${{ env.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            - name: Install dependencies
+              run: pnpm install
     test1:
         runs-on: ubuntu-latest
-        needs: init-repo
+        needs: init
         steps:
             - run: echo "this is test1"
