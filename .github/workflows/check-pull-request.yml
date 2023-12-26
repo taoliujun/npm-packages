@@ -28,6 +28,9 @@ jobs:
                   version: 8
                   run_install: false
 
+            - name: Check node version
+              run: node -v
+
             - name: Get pnpm store directory
               shell: bash
               run: |
