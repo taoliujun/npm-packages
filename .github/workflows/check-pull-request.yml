@@ -1,5 +1,5 @@
 name: check pull request
-run-name: check for pr #${{ github.event.pull_request.number }}
+run-name: check for pr \# ${{ github.event.pull_request.number }}
 on:
     pull_request:
         types: [opened, edited, synchronize, reopened]
