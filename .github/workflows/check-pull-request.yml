@@ -21,6 +21,8 @@ jobs:
             #   uses: actions/setup-node@v4
             #   with:
             #       node-version: 20
+            - name: Check node version 1
+              run: node -v
 
             - name: Init pnpm
               uses: pnpm/action-setup@v2
@@ -28,7 +30,7 @@ jobs:
                   version: 8
                   run_install: false
 
-            - name: Check node version
+            - name: Check node version 2
               run: node -v
 
             - name: Get pnpm store directory
