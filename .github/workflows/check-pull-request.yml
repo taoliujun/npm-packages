@@ -34,7 +34,7 @@ jobs:
 
                       **Checking...**
 
-                      Last updated on ${new Date().toLocaleString()}
+                      Last updated on ${new Date().toLocaleString('zh-CN')}
 
                       ${uniqueIdentifier}
                       `;
