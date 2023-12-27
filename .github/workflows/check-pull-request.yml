@@ -100,9 +100,9 @@ jobs:
             result: ${{ steps.lint.outputs.result }}
         steps:
             - id: lint
-              name: Run eslint check
+              name: Run eslint
               run: |
-                  echo "this is eslint" && echo "result=eslint result" >> "$GITHUB_OUTPUT"
+                  echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
 
     typescript:
         name: check typescript
@@ -112,9 +112,9 @@ jobs:
             result: ${{ steps.lint.outputs.result }}
         steps:
             - id: lint
-              name: Run typescript check
+              name: Run tsc
               run: |
-                  echo "this is typescript" && echo "result=typescript result" >> "$GITHUB_OUTPUT"
+                  echo "this is typescript" && echo "result=:x: typescript result" >> "$GITHUB_OUTPUT"
 
     unitTest:
         name: check unit test
@@ -124,7 +124,7 @@ jobs:
             result: ${{ steps.lint.outputs.result }}
         steps:
             - id: lint
-              name: Run unit test check
+              name: Run jest
               run: |
                   echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
 
