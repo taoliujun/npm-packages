@@ -4,8 +4,7 @@ const github = require('@actions/github');
 const main = async () => {
     const token = core.getInput('token');
     const uniqueIdentifier = `[^uniqueIdentifier]: ${core.getInput('uniqueIdentifier')}`;
-    let body = `${core.getInput('body')}\n\n${uniqueIdentifier}`;
-    body = body.replace(/__dateTime__/g, new Date().toLocaleString('zh-Hans-CN'));
+    const body = `${core.getInput('body')}\n\n${uniqueIdentifier}`;
 
     const { owner, repo } = github.context.repo;
     const issueNumber = github.context.issue.number;
