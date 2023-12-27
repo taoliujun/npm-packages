@@ -20,7 +20,7 @@ jobs:
                       const issue_number = context.issue.number;
                       const uniqueIdentifier = `[^flag]: ${context.workflow}`;
                       const body = `
-                      Commented by Action `check pull request`, don't deal with this comment.
+                      Commented by Action \`check pull request\`, don't deal with this comment.
 
                       **Checking...**
 
