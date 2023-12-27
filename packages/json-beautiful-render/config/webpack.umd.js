@@ -9,7 +9,7 @@ module.exports = {
             type: 'umd',
         },
     },
-    optimization: {
-        minimize: false,
-    },
+    // optimization: {
+    //     minimize: false,
+    // },
 };
