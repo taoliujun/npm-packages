@@ -32,7 +32,7 @@ jobs:
 
                       ---
 
-                      Commented by Action `${{github.workflow}}`, last updated on ${$DATETIME}.
+                      Commented by Action `${{github.workflow}}`, last updated on ${{github.env.DATETIME}}.
 
     init:
         name: init
