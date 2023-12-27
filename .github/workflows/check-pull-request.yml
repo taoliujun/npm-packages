@@ -14,8 +14,12 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: index
+            - name: test unique comment
               uses: ./.github/actions/unique-comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  uniqueIdentifier: ${{ github.workflow }}
+                  body: '123'
     # replyChecking:
     #     name: reply checking
     #     runs-on: ubuntu-latest
