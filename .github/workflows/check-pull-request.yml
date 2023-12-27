@@ -17,21 +17,45 @@ jobs:
               uses: actions/github-script@v7
               with:
                   script: |
+                      const {owner, repo} = context.repo;
                       const issue_number = context.issue.number;
+
                       const uniqueIdentifier = `[^flag]: ${context.workflow}`;
+
+                      const comments = await github.rest.issues.listComments({
+                        owner,
+                        repo,
+                        issue_number
+                      });
+
+
                       const body = `
                       Commented by Action \`check pull request\`, don't deal with this comment.
 
                       **Checking...**
 
+                      ${new Date().toLocaleString()}
+
                       ${uniqueIdentifier}
                       `;
-                      github.rest.issues.createComment({
-                          owner: context.repo.owner,
-                          repo: context.repo.repo,
-                          issue_number: context.issue.number,
-                          body,
-                      });
+
+                      const botComment = comments.data.find(v => v.body.includes(uniqueIdentifier));
+
+                      if (botComment) {
+                        await github.rest.issues.updateComment({
+                            owner,
+                            repo,
+                            comment_id: botComment.id,
+                            body,
+                        });
+                      } else {
+                        await github.rest.issues.createComment({
+                            owner,
+                            repo,
+                            issue_number,
+                            body,
+                        });
+                      }
 
     # init:
     #     name: init
