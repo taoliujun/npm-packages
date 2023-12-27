@@ -30,9 +30,9 @@ jobs:
 
 
                       const body = `
-                      Commented by Action \`check pull request\`, don't deal with this comment.
-
                       **Checking...**
+
+                      Commented by Action \`check pull request\`, don't deal with this comment.
 
                       Last updated on ${new Date().toLocaleString('zh-CN')}
 
