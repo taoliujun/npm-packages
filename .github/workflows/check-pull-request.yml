@@ -32,9 +32,9 @@ jobs:
                       const body = `
                       **Checking...**
 
-                      Commented by Action \`check pull request\`, don't deal with this comment.
+                      ---
 
-                      Last updated on ${new Date().toLocaleString('zh-CN')}
+                      Commented by Action \`check pull request\`, don't deal with this comment. Last updated on ${new Date().toLocaleString('zh-CN')}
 
                       ${uniqueIdentifier}
                       `;
