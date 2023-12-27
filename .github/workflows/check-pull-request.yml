@@ -12,6 +12,8 @@ jobs:
         name: test an action
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
             - name: index
               uses: ./actions/non-duplicate-comment
     # replyChecking:
