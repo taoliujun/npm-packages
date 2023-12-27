@@ -30,84 +30,82 @@ jobs:
                           `
                       })
 
-    init:
-        name: init
-        runs-on: ubuntu-latest
-        # TODO no needs
-        needs: [replyChecking]
-        steps:
-            - name: Init repo
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{github.head_ref}}
+    # init:
+    #     name: init
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Init repo
+    #           uses: actions/checkout@v4
+    #           with:
+    #               ref: ${{github.head_ref}}
 
-            # - name: Init node
-            #   uses: actions/setup-node@v4
-            #   with:
-            #       node-version: 20
+    #         # - name: Init node
+    #         #   uses: actions/setup-node@v4
+    #         #   with:
+    #         #       node-version: 20
 
-            # - name: Init pnpm
-            #   uses: pnpm/action-setup@v2
-            #   with:
-            #       version: 8
-            #       run_install: false
+    #         # - name: Init pnpm
+    #         #   uses: pnpm/action-setup@v2
+    #         #   with:
+    #         #       version: 8
+    #         #       run_install: false
 
-            # - name: Get pnpm store directory
-            #   shell: bash
-            #   run: |
-            #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+    #         # - name: Get pnpm store directory
+    #         #   shell: bash
+    #         #   run: |
+    #         #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-            # - name: Setup pnpm cache
-            #   uses: actions/cache@v3
-            #   with:
-            #       path: ${{ env.STORE_PATH }}
-            #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-            #       restore-keys: |
-            #           ${{ runner.os }}-pnpm-store-
+    #         # - name: Setup pnpm cache
+    #         #   uses: actions/cache@v3
+    #         #   with:
+    #         #       path: ${{ env.STORE_PATH }}
+    #         #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+    #         #       restore-keys: |
+    #         #           ${{ runner.os }}-pnpm-store-
 
-            # - name: Install dependencies
-            #   run: pnpm install
+    #         # - name: Install dependencies
+    #         #   run: pnpm install
 
-    eslint:
-        name: check eslint
-        runs-on: ubuntu-latest
-        needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
-        steps:
-            - id: lint
-              run: |
-                  echo "this is eslint" && echo "result=eslint result" >> "$GITHUB_OUTPUT"
+    # eslint:
+    #     name: check eslint
+    #     runs-on: ubuntu-latest
+    #     needs: [init]
+    #     outputs:
+    #         result: ${{ steps.lint.outputs.result }}
+    #     steps:
+    #         - id: lint
+    #           run: |
+    #               echo "this is eslint" && echo "result=eslint result" >> "$GITHUB_OUTPUT"
 
-    typescript:
-        name: check typescript
-        runs-on: ubuntu-latest
-        needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
-        steps:
-            - id: lint
-              run: |
-                  echo "this is typescript" && echo "result=typescript result" >> "$GITHUB_OUTPUT"
+    # typescript:
+    #     name: check typescript
+    #     runs-on: ubuntu-latest
+    #     needs: [init]
+    #     outputs:
+    #         result: ${{ steps.lint.outputs.result }}
+    #     steps:
+    #         - id: lint
+    #           run: |
+    #               echo "this is typescript" && echo "result=typescript result" >> "$GITHUB_OUTPUT"
 
-    unitTest:
-        name: check unit test
-        runs-on: ubuntu-latest
-        needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
-        steps:
-            - id: lint
-              run: |
-                  echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
+    # unitTest:
+    #     name: check unit test
+    #     runs-on: ubuntu-latest
+    #     needs: [init]
+    #     outputs:
+    #         result: ${{ steps.lint.outputs.result }}
+    #     steps:
+    #         - id: lint
+    #           run: |
+    #               echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
 
-    reply:
-        name: reply
-        runs-on: ubuntu-latest
-        needs: [eslint, typescript, unitTest]
-        steps:
-            - run: |
-                  echo "this is reply" && 
-                  echo "eslint output is ${{needs.eslint.outputs.result}}" &&
-                  echo "typescript output is ${{needs.typescript.outputs.result}}" &&
-                  echo "unitTest output is ${{needs.unitTest.outputs.result}}"
+    # reply:
+    #     name: reply
+    #     runs-on: ubuntu-latest
+    #     needs: [eslint, typescript, unitTest]
+    #     steps:
+    #         - run: |
+    #               echo "this is reply" &&
+    #               echo "eslint output is ${{needs.eslint.outputs.result}}" &&
+    #               echo "typescript output is ${{needs.typescript.outputs.result}}" &&
+    #               echo "unitTest output is ${{needs.unitTest.outputs.result}}"
