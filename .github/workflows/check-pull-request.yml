@@ -17,39 +17,43 @@ jobs:
               with:
                   ref: ${{github.head_ref}}
 
-            - name: Init node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
+            # - name: Init node
+            #   uses: actions/setup-node@v4
+            #   with:
+            #       node-version: 20
 
-            - name: Init pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 8
-                  run_install: false
+            # - name: Init pnpm
+            #   uses: pnpm/action-setup@v2
+            #   with:
+            #       version: 8
+            #       run_install: false
 
-            - name: Get pnpm store directory
-              shell: bash
-              run: |
-                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+            # - name: Get pnpm store directory
+            #   shell: bash
+            #   run: |
+            #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-            - name: Setup pnpm cache
-              uses: actions/cache@v3
-              with:
-                  path: ${{ env.STORE_PATH }}
-                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
+            # - name: Setup pnpm cache
+            #   uses: actions/cache@v3
+            #   with:
+            #       path: ${{ env.STORE_PATH }}
+            #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+            #       restore-keys: |
+            #           ${{ runner.os }}-pnpm-store-
 
-            - name: Install dependencies
-              run: pnpm install
+            # - name: Install dependencies
+            #   run: pnpm install
 
     eslint:
         name: check eslint
         runs-on: ubuntu-latest
         needs: [init]
+        outputs:
+            result: ${{ steps.lint.outputs.result }}
         steps:
-            - run: echo "this is eslint"
+            - id: lint
+              run: |
+                  echo "this is eslint" && echo "result=i am eslint" >> "$GITHUB_OUTPUT"
 
     typescript:
         name: check typescript
@@ -70,4 +74,5 @@ jobs:
         runs-on: ubuntu-latest
         needs: [eslint, typescript, unitTest]
         steps:
-            - run: echo "this is reply"
+            - run: |
+                  echo "this is reply" && echo eslint output ${{needs.eslint.outputs.result}}
