@@ -24,194 +24,105 @@ jobs:
 
                       ---
 
-                      Commented by Action `${{github.workflow}}`, don't deal with this comment. Last updated on __dateTime__.
+                      Commented by Action `${{github.workflow}}`, last updated on __dateTime__.
 
-    # replyChecking:
-    #     name: reply checking
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Create or update a comment
-    #           uses: actions/github-script@v7
-    #           with:
-    #               script: |
-    #                   const {owner, repo} = context.repo;
-    #                   const issue_number = context.issue.number;
+    init:
+        name: init
+        runs-on: ubuntu-latest
+        steps:
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
 
-    #                   const uniqueIdentifier = `[^flag]: ${context.workflow}`;
+            # - name: Init node
+            #   uses: actions/setup-node@v4
+            #   with:
+            #       node-version: 20
 
-    #                   const comments = await github.rest.issues.listComments({
-    #                     owner,
-    #                     repo,
-    #                     issue_number
-    #                   });
+            # - name: Init pnpm
+            #   uses: pnpm/action-setup@v2
+            #   with:
+            #       version: 8
+            #       run_install: false
 
-    #                   const body = `
-    #                   **Checking...**
+            # - name: Get pnpm store directory
+            #   shell: bash
+            #   run: |
+            #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-    #                   ---
+            # - name: Setup pnpm cache
+            #   uses: actions/cache@v3
+            #   with:
+            #       path: ${{ env.STORE_PATH }}
+            #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+            #       restore-keys: |
+            #           ${{ runner.os }}-pnpm-store-
 
-    #                   Commented by Action \`check pull request\`, don't deal with this comment. Last updated on ${new Date().toLocaleString('zh-Hans-CN')}.
+            # - name: Install dependencies
+            #   run: pnpm install
 
-    #                   ${uniqueIdentifier}
-    #                   `;
+    eslint:
+        name: check eslint
+        runs-on: ubuntu-latest
+        needs: [init]
+        outputs:
+            result: ${{ steps.lint.outputs.result }}
+        steps:
+            - id: lint
+              name: Run eslint
+              run: |
+                  echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
 
-    #                   const botComment = comments.data.find(v => v.body.includes(uniqueIdentifier));
+    typescript:
+        name: check typescript
+        runs-on: ubuntu-latest
+        needs: [init]
+        outputs:
+            result: ${{ steps.lint.outputs.result }}
+        steps:
+            - id: lint
+              name: Run tsc
+              run: |
+                  echo "this is typescript" && echo "result=:x: typescript result" >> "$GITHUB_OUTPUT"
 
-    #                   if (botComment) {
-    #                     await github.rest.issues.updateComment({
-    #                         owner,
-    #                         repo,
-    #                         comment_id: botComment.id,
-    #                         body,
-    #                     });
-    #                   } else {
-    #                     await github.rest.issues.createComment({
-    #                         owner,
-    #                         repo,
-    #                         issue_number,
-    #                         body,
-    #                     });
-    #                   }
+    unitTest:
+        name: check unit test
+        runs-on: ubuntu-latest
+        needs: [init]
+        outputs:
+            result: ${{ steps.lint.outputs.result }}
+        steps:
+            - id: lint
+              name: Run jest
+              run: |
+                  echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
 
-    # init:
-    #     name: init
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Init repo
-    #           uses: actions/checkout@v4
-    #           with:
-    #               ref: ${{github.head_ref}}
+    replyResult:
+        name: reply result
+        runs-on: ubuntu-latest
+        needs: [eslint, typescript, unitTest]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Create or update a comment
+              uses: ./.github/actions/unique-comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  uniqueIdentifier: ${{ github.workflow }}
+                  body: |
+                      ## Eslint Check Result
 
-    #         # - name: Init node
-    #         #   uses: actions/setup-node@v4
-    #         #   with:
-    #         #       node-version: 20
+                      ${{needs.eslint.outputs.result}}
 
-    #         # - name: Init pnpm
-    #         #   uses: pnpm/action-setup@v2
-    #         #   with:
-    #         #       version: 8
-    #         #       run_install: false
+                      ## Typescript Check Result
 
-    #         # - name: Get pnpm store directory
-    #         #   shell: bash
-    #         #   run: |
-    #         #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+                      ${{needs.typescript.outputs.result}}
 
-    #         # - name: Setup pnpm cache
-    #         #   uses: actions/cache@v3
-    #         #   with:
-    #         #       path: ${{ env.STORE_PATH }}
-    #         #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-    #         #       restore-keys: |
-    #         #           ${{ runner.os }}-pnpm-store-
+                      ## UnitTest Check Result
 
-    #         # - name: Install dependencies
-    #         #   run: pnpm install
+                      ${{needs.unitTest.outputs.result}}
 
-    # eslint:
-    #     name: check eslint
-    #     runs-on: ubuntu-latest
-    #     needs: [init]
-    #     outputs:
-    #         result: ${{ steps.lint.outputs.result }}
-    #     steps:
-    #         - id: lint
-    #           name: Run eslint
-    #           run: |
-    #               echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
+                      ---
 
-    # typescript:
-    #     name: check typescript
-    #     runs-on: ubuntu-latest
-    #     needs: [init]
-    #     outputs:
-    #         result: ${{ steps.lint.outputs.result }}
-    #     steps:
-    #         - id: lint
-    #           name: Run tsc
-    #           run: |
-    #               echo "this is typescript" && echo "result=:x: typescript result" >> "$GITHUB_OUTPUT"
-
-    # unitTest:
-    #     name: check unit test
-    #     runs-on: ubuntu-latest
-    #     needs: [init]
-    #     outputs:
-    #         result: ${{ steps.lint.outputs.result }}
-    #     steps:
-    #         - id: lint
-    #           name: Run jest
-    #           run: |
-    #               echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
-
-    # replyResult:
-    #     name: reply result
-    #     runs-on: ubuntu-latest
-    #     needs: [eslint, typescript, unitTest]
-    #     steps:
-    #         - name: Create or update a comment
-    #           uses: actions/github-script@v7
-    #           with:
-    #               script: |
-    #                   const {owner, repo} = context.repo;
-    #                   const issue_number = context.issue.number;
-
-    #                   const uniqueIdentifier = `[^flag]: ${context.workflow}`;
-
-    #                   const comments = await github.rest.issues.listComments({
-    #                     owner,
-    #                     repo,
-    #                     issue_number
-    #                   });
-
-    #                   let body = ``;
-
-    #                   const eslintResult = `${{needs.eslint.outputs.result}}`;
-    #                   const typescriptResult = `${{needs.typescript.outputs.result}}`;
-    #                   const unitTestResult = `${{needs.unitTest.outputs.result}}`;
-
-    #                   body += `
-    #                   ## Eslint Check Result
-
-    #                   ${eslintResult}
-    #                   `;
-
-    #                   body += `
-    #                   ## Typescript Check Result
-
-    #                   ${typescriptResult}
-    #                   `;
-
-    #                   body += `
-    #                   ## UnitTest Check Result
-
-    #                   ${unitTestResult}
-    #                   `;
-
-    #                   body += `
-
-    #                   ---
-
-    #                   Commented by Action \`check pull request\`, don't deal with this comment. Last updated on ${new Date().toLocaleString('zh-Hans-CN')}.
-
-    #                   ${uniqueIdentifier}
-    #                   `;
-
-    #                   const botComment = comments.data.find(v => v.body.includes(uniqueIdentifier));
-
-    #                   if (botComment) {
-    #                     await github.rest.issues.updateComment({
-    #                         owner,
-    #                         repo,
-    #                         comment_id: botComment.id,
-    #                         body,
-    #                     });
-    #                   } else {
-    #                     await github.rest.issues.createComment({
-    #                         owner,
-    #                         repo,
-    #                         issue_number,
-    #                         body,
-    #                     });
-    #                   }
+                      Commented by Action `${{github.workflow}}`, last updated on __dateTime__.
