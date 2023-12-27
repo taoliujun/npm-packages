@@ -3,8 +3,8 @@ const github = require('@actions/github');
 
 const main = async () => {
     const token = core.getInput('token');
-    const uniqueIdentifier = `[^uniqueIdentifier] ${core.getInput('uniqueIdentifier')}`;
-    let body = `${core.getInput('body')}\n\n---\n\n${uniqueIdentifier}`;
+    const uniqueIdentifier = `[^uniqueIdentifier]: ${core.getInput('uniqueIdentifier')}`;
+    let body = `${core.getInput('body')}\n\n${uniqueIdentifier}`;
     body = body.replace(/__dateTime__/g, new Date().toLocaleString('zh-Hans-CN'));
 
     const { owner, repo } = github.context.repo;
@@ -23,7 +23,7 @@ const main = async () => {
     const botComment = comments.data.find((v) => v.body.includes(uniqueIdentifier));
 
     if (botComment) {
-        core.info('update comment.');
+        core.info('update comment successfully.');
         await octokit.rest.issues.updateComment({
             owner,
             repo,
@@ -31,7 +31,7 @@ const main = async () => {
             body,
         });
     } else {
-        core.info('create comment.');
+        core.info('create comment successfully.');
         await octokit.rest.issues.createComment({
             owner,
             repo,
