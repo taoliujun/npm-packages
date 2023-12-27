@@ -20,13 +20,11 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   uniqueIdentifier: ${{ github.workflow }}
                   body: |
-                      `
                       **Checking...**
 
                       ---
 
-                      Commented by Action \`check pull request\`, don't deal with this comment. Last updated on ${new Date().toLocaleString('zh-Hans-CN')}.
-                      `
+                      Commented by Action `${{github.workflow}}`, don't deal with this comment. Last updated on __dateTime__.
 
     # replyChecking:
     #     name: reply checking
