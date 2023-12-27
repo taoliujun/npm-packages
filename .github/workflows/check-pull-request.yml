@@ -6,7 +6,7 @@ on:
         types: [opened, edited, synchronize, reopened]
 permissions:
     issues: write
-    pull-requests: read
+    pull-requests: write
 jobs:
     # trigger a reply containing "checking..."
     replyChecking:
