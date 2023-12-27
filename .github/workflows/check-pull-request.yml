@@ -19,16 +19,17 @@ jobs:
                   script: |
                       const issue_number = context.issue.number;
                       const uniqueIdentifier = context.workflow;
+                      const body = `
+                          checking...
+                          
+                          // this comment is edited by ${uniqueIdentifier}
+                      `;
                       github.rest.issues.createComment({
                           owner: context.repo.owner,
                           repo: context.repo.repo,
                           issue_number: context.issue.number,
-                          body: `
-                          checking...
-                          
-                          // this comment is edited by ${uniqueIdentifier}
-                          `
-                      })
+                          body,
+                      });
 
     # init:
     #     name: init
