@@ -8,18 +8,26 @@ permissions:
     issues: write
     pull-requests: write
 jobs:
-    testAction:
-        name: test an action
+    replyChecking:
+        name: reply checking
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: test unique comment
+            - name: Create or update a comment
               uses: ./.github/actions/unique-comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   uniqueIdentifier: ${{ github.workflow }}
-                  body: '123'
+                  body: |
+                      `
+                      **Checking...**
+
+                      ---
+
+                      Commented by Action \`check pull request\`, don't deal with this comment. Last updated on ${new Date().toLocaleString('zh-Hans-CN')}.
+                      `
+
     # replyChecking:
     #     name: reply checking
     #     runs-on: ubuntu-latest
