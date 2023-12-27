@@ -134,7 +134,7 @@ jobs:
 
                         ---
 
-                        Commented by Action `${{github.workflow}}`, last updated on __dateTime__.
+                        Commented by Action `${{github.workflow}}`, last updated on ${dateTime}.
                       `;
             - name: Create or update a comment
               uses: ./.github/actions/unique-comment
