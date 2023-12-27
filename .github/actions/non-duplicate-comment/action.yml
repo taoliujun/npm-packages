@@ -3,4 +3,4 @@ description: create or update a non-duplicate comment
 
 runs:
     using: 'node20'
-    main: 'index.js'
+    main: './dist/index.js'
