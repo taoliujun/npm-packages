@@ -14,25 +14,23 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Create comment body
-              id: commentBody
+            - name: Get date time
+              id: getDateTime
               uses: actions/github-script@v7
               with:
                   script: |
-                      const dateTime = new Date().toLocaleString('zh-Hans-CN');
-                      return `
-                        **Checking...**
-
-                        ---
-
-                        Commented by Action \`${{github.workflow}}\`, last updated on ${dateTime}.
-                      `;
+                      return new Date().toLocaleString('zh-Hans-CN');
             - name: Create or update a comment
               uses: ./.github/actions/unique-comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   uniqueIdentifier: ${{ github.workflow }}
-                  body: ${{steps.commentBody.outputs.result}}
+                  body: |
+                      **Checking...**
+
+                      ---
+
+                      Commented by Action `${{github.workflow}}`, last updated on ${{steps.getDateTime.outputs.result}}.
 
     init:
         name: init
@@ -113,32 +111,31 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Create comment body
-              id: commentBody
+            - name: Get date time
+              id: getDateTime
               uses: actions/github-script@v7
               with:
                   script: |
-                      const dateTime = new Date().toLocaleString('zh-Hans-CN');
-                      return `
-                        ## Eslint Check Result
+                      return new Date().toLocaleString('zh-Hans-CN');
 
-                        ${{needs.eslint.outputs.result}}
-
-                        ## Typescript Check Result
-
-                        ${{needs.typescript.outputs.result}}
-
-                        ## UnitTest Check Result
-
-                        ${{needs.unitTest.outputs.result}}
-
-                        ---
-
-                        Commented by Action `${{github.workflow}}`, last updated on ${dateTime}.
-                      `;
             - name: Create or update a comment
               uses: ./.github/actions/unique-comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   uniqueIdentifier: ${{ github.workflow }}
-                  body: ${{steps.commentBody.outputs.result}}
+                  body: |
+                      ## Eslint Check Result
+
+                      ${{needs.eslint.outputs.result}}
+
+                      ## Typescript Check Result
+
+                      ${{needs.typescript.outputs.result}}
+
+                      ## UnitTest Check Result
+
+                      ${{needs.unitTest.outputs.result}}
+
+                      ---
+
+                      Commented by Action `${{github.workflow}}`, last updated on ${{steps.getDateTime.outputs.result}}.
