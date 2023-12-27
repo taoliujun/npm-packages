@@ -1,5 +1,11 @@
 # json-beautiful-render
 
+## 1.2.1
+
+### Patch Changes
+
+- 66a25b1: docs: update README
+
 ## 1.2.0
 
 ### Minor Changes
