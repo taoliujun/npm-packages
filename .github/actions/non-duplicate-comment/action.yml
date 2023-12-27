@@ -1,6 +1,0 @@
-name: non-duplicate-comment
-description: create or update a non-duplicate comment
-
-runs:
-    using: 'node20'
-    main: './dist/index.js'

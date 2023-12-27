@@ -1,5 +1,5 @@
 {
-  "name": "non-duplicate-comment",
+  "name": "unique-comment",
   "version": "1.0.0",
   "private": true,
   "scripts": {

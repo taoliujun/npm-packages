@@ -15,7 +15,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             - name: index
-              uses: ./.github/actions/non-duplicate-comment
+              uses: ./.github/actions/unique-comment
     # replyChecking:
     #     name: reply checking
     #     runs-on: ubuntu-latest
