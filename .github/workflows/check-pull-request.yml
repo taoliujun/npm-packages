@@ -46,27 +46,27 @@ jobs:
               with:
                   node-version: 20
 
-            # - name: Init pnpm
-            #   uses: pnpm/action-setup@v2
-            #   with:
-            #       version: 8
-            #       run_install: false
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+                  run_install: false
 
-            # - name: Get pnpm store directory
-            #   shell: bash
-            #   run: |
-            #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+            - name: Get pnpm store directory
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-            # - name: Setup pnpm cache
-            #   uses: actions/cache@v3
-            #   with:
-            #       path: ${{ env.STORE_PATH }}
-            #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-            #       restore-keys: |
-            #           ${{ runner.os }}-pnpm-store-
+            - name: Setup pnpm cache
+              uses: actions/cache@v3
+              with:
+                  path: ${{ env.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
 
-            # - name: Install dependencies
-            #   run: pnpm install
+            - name: Install dependencies
+              run: pnpm install
 
             - name: Upload initialized repo
               id: upload
@@ -96,11 +96,11 @@ jobs:
               uses: actions/github-script@v7
               with:
                   script: |
-                      console.log('needs', context.needs.init.outputs.upload);
+                      console.log('needs', '${{needs.init.outputs.upload}}');
                       await octokit.rest.actions.deleteArtifact({
                           owner: context.repo.owner,
                           repo: context.repo.name,
-                          artifact_id: context.needs.init.outputs.upload,
+                          artifact_id: '${{needs.init.outputs.upload}}',
                       });
 
     # eslint:
