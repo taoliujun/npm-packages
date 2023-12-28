@@ -9,7 +9,6 @@ permissions:
     pull-requests: write
 jobs:
     replyChecking:
-        name: reply checking
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
