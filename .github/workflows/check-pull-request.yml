@@ -19,7 +19,7 @@ jobs:
               uses: actions/github-script@v7
               with:
                   script: |
-                      console.log('==1', JSON.stringify(context.payload.pull_request.repository))
+                      console.log('==1', JSON.stringify(context.payload))
                         return new Date().toLocaleString('zh-Hans-CN');
             - name: Create or update a comment
               uses: ./.github/actions/unique-comment
