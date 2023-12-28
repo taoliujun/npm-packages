@@ -44,6 +44,7 @@ jobs:
             - name: Run eslint
               id: lint
               run: |
+                  echo "node $(node -v)"
                   echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
 
     typescript:
