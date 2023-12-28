@@ -19,14 +19,13 @@ jobs:
               uses: actions/github-script@v7
               with:
                   script: |
-                      console.log('==1', context.payload.repository.owner.login, context.payload.repository.name)
-                        return new Date().toLocaleString('zh-Hans-CN');
+                      return new Date().toLocaleString('zh-Hans-CN');
             - name: Create or update a comment
               uses: ./.github/actions/unique-comment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  owner: ${{ github.repository_owner }}
-                  repo: ${{ github.event.pull_request.repository.name }}
+                  owner: ${{ github.event.repository.owner.login }}
+                  repo: ${{ github.event.repository.name }}
                   issue_number: ${{ github.event.pull_request.number }}
                   uniqueIdentifier: ${{ github.workflow }}
                   body: |
