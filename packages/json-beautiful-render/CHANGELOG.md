@@ -1,5 +1,17 @@
 # json-beautiful-render
 
+## 1.2.1
+
+### Patch Changes
+
+- 66a25b1: docs: update README
+
+## 1.2.0
+
+### Minor Changes
+
+- de45de8: feat: build umd
+
 ## 1.1.4
 
 ### Patch Changes

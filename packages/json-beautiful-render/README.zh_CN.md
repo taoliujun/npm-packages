@@ -14,9 +14,19 @@
 
 ## 安装
 
+### NPM
+
 ```bash
 npm add json-beautiful-render
 ```
+
+### UMD
+
+```html
+<script src="//cdn.jsdelivr.net/npm/json-beautiful-render/lib/umd/index.js"></script>
+```
+
+umd模式暴露了全局变量`jsonRender`、`jsonRenderNoStyle`。
 
 ## 使用
 

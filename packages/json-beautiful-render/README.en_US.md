@@ -14,9 +14,19 @@ Features：
 
 ## Installation
 
+### NPM
+
 ```bash
 npm add json-beautiful-render
 ```
+
+### UMD
+
+```html
+<script src="//cdn.jsdelivr.net/npm/json-beautiful-render/lib/umd/index.js"></script>
+```
+
+Exposed global variables `jsonRender` and `jsonRenderNoStyle` in umd mode.
 
 ## Usage
 
