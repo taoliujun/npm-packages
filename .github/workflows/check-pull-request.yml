@@ -84,7 +84,8 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      // core.setOutput('result', ':white_check_mark: eslint result3');
+                      const ret = exec.exec('pnpm run lint || true');
+                      console.log('==ret',ret);
                       return ':white_check_mark: eslint result4';
 
             #   run: |
