@@ -32,7 +32,26 @@ jobs:
                       Commented by Action **${{github.workflow}}**, last updated on ${{steps.getDateTime.outputs.result}}.
 
     init:
-        uses: ./.github/workflows/init-repo.yml
+        runs-on: ubuntu-latest
+        steps:
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - name: Init node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
 
     eslint:
         runs-on: ubuntu-latest
@@ -40,7 +59,25 @@ jobs:
         outputs:
             result: ${{ steps.lint.outputs.result }}
         steps:
-            - uses: ./.github/workflows/init-repo.yml
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - name: Init node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
             - name: Run eslint
               id: lint
               run: |
@@ -53,6 +90,25 @@ jobs:
         outputs:
             result: ${{ steps.lint.outputs.result }}
         steps:
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - name: Init node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
             - name: Run tsc
               id: lint
               run: |
@@ -64,6 +120,25 @@ jobs:
         outputs:
             result: ${{ steps.lint.outputs.result }}
         steps:
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - name: Init node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
             - name: Run jest
               id: lint
               run: |
