@@ -71,8 +71,9 @@ jobs:
         needs: [init]
         steps:
             - name: test init
-              run: echo $(git rev-parse --abbrev-ref HEAD)
-            - run: node -v
+              run: |
+                  echo "git $(git rev-parse --abbrev-ref HEAD)"
+                  echo "node $(node -v)"
 
     # eslint:
     #     runs-on: ubuntu-latest
