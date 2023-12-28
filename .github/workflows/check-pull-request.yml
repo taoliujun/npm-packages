@@ -112,10 +112,6 @@ jobs:
 
                       return `:white_check_mark: ${errorMatch?.[0]} ${warnMatch?.[0]}`;
 
-            #   run: |
-            #       pnpm run lint
-            #       echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
-
     typescript:
         runs-on: ubuntu-latest
         needs: [init]
@@ -170,4 +166,4 @@ jobs:
 
                       ---
 
-                      Commented by Action ${{github.workflow}}, last updated on ${{steps.getDateTime.outputs.result}}.
+                      Commented by Action [${{github.workflow}}](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}), last updated on ${{steps.getDateTime.outputs.result}}.
