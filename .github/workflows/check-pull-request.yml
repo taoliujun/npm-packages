@@ -2,8 +2,7 @@ name: check pull request
 run-name: 'check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
-        # TODO remove edited
-        types: [opened, edited, synchronize, reopened]
+        types: [opened, synchronize, reopened]
 permissions:
     issues: write
     pull-requests: write
