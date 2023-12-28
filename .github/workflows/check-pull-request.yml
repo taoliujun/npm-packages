@@ -16,7 +16,7 @@ jobs:
               uses: actions/checkout@v4
             - name: Get date time
               id: getDateTime
-              run: echo "result=$(TZ=Asia/Shanghai date '+%F %T')" >> "$GITHUB_OUTPUT"
+              run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
             - name: Create or update a comment
               uses: ./.github/actions/unique-comment
               with:
