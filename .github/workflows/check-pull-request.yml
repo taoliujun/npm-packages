@@ -84,6 +84,7 @@ jobs:
               with:
                   result-encoding: string
                   script: |
+                      console.log(JSON.stringify(context));
                       let output = '';
                       let outerr = '';
                       await exec.exec("pnpm run lint", [], {
