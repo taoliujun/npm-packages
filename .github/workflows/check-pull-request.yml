@@ -84,8 +84,24 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      const ret = exec.exec('pnpm run lint || true');
-                      console.log('==ret',ret);
+                      let output;
+                      let outerr;
+                      await exec.exec("pnpm run lint", {
+                          listeners: {
+                            stdout: (data) => {
+                                console.log("==stdout", data.toString());
+                                output += data.toString();
+                            },
+                            stderr: (data) => {
+                                console.log("==stderr", data.toString());
+                                outerr += data.toString();
+                            },
+                          },
+                      });
+
+                      console.log('==output', output);
+                      console.log('==outerr', outerr);
+
                       return ':white_check_mark: eslint result4';
 
             #   run: |
