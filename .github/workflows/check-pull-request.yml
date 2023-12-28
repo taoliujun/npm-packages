@@ -32,7 +32,6 @@ jobs:
                       Commented by Action **${{github.workflow}}**, last updated on ${{steps.getDateTime.outputs.result}}.
 
     init:
-        name: init
         runs-on: ubuntu-latest
         steps:
             - name: Init repo
@@ -68,7 +67,6 @@ jobs:
             #   run: pnpm install
 
     eslint:
-        name: check eslint
         runs-on: ubuntu-latest
         needs: [init]
         outputs:
@@ -80,7 +78,6 @@ jobs:
                   echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
 
     typescript:
-        name: check typescript
         runs-on: ubuntu-latest
         needs: [init]
         outputs:
@@ -92,7 +89,6 @@ jobs:
                   echo "this is typescript" && echo "result=:x: typescript result" >> "$GITHUB_OUTPUT"
 
     unitTest:
-        name: check unit test
         runs-on: ubuntu-latest
         needs: [init]
         outputs:
@@ -104,7 +100,6 @@ jobs:
                   echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
 
     replyResult:
-        name: reply result
         runs-on: ubuntu-latest
         needs: [eslint, typescript, unitTest]
         steps:
