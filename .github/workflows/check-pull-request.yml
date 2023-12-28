@@ -105,11 +105,11 @@ jobs:
                       const errorMatch = output.match(/(\d+) errors/);
                       const warnMatch = output.match(/(\d+) warnings/);
 
-                      if (errorMatch?.[1] !== '0') {
+                      if (errorMatch && errorMatch?.[1] !== '0') {
                         return `:x: ${errorMatch?.[0]} ${warnMatch?.[0]}`;
                       }
 
-                      return `:white_check_mark: ${errorMatch?.[0]} ${warnMatch?.[0]}`;
+                      return `:white_check_mark: ${errorMatch?.[0] || '0 errors'} ${warnMatch?.[0] || '0 warnings'}`;
 
     typescript:
         runs-on: ubuntu-latest
