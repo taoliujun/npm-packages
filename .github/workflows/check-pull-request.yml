@@ -8,28 +8,28 @@ permissions:
     issues: write
     pull-requests: write
 jobs:
-    # replyChecking:
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Checkout
-    #           uses: actions/checkout@v4
-    #         - name: Get date time
-    #           id: getDateTime
-    #           run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
-    #         - name: Create or update a comment
-    #           uses: ./.github/actions/unique-comment
-    #           with:
-    #               token: ${{ secrets.GITHUB_TOKEN }}
-    #               owner: ${{ github.event.repository.owner.login }}
-    #               repo: ${{ github.event.repository.name }}
-    #               issue_number: ${{ github.event.number }}
-    #               uniqueIdentifier: ${{ github.workflow }}
-    #               body: |
-    #                   **Checking...**
+    replyChecking:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Get date time
+              id: getDateTime
+              run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
+            - name: Create or update a comment
+              uses: ./.github/actions/unique-comment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  owner: ${{ github.event.repository.owner.login }}
+                  repo: ${{ github.event.repository.name }}
+                  issue_number: ${{ github.event.number }}
+                  uniqueIdentifier: ${{ github.workflow }}
+                  body: |
+                      **Checking...**
 
-    #                   ---
+                      ---
 
-    #                   Commented by Action **${{github.workflow}}**, last updated on ${{steps.getDateTime.outputs.result}}.
+                      Commented by Action [${{github.workflow}}](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}), last updated on ${{steps.getDateTime.outputs.result}}.
 
     init:
         runs-on: ubuntu-latest
@@ -84,7 +84,6 @@ jobs:
               with:
                   result-encoding: string
                   script: |
-                      console.log(JSON.stringify(context));
                       let output = '';
                       let outerr = '';
                       await exec.exec("pnpm run lint", [], {
@@ -171,4 +170,4 @@ jobs:
 
                       ---
 
-                      Commented by Action `${{github.workflow}}`, last updated on ${{steps.getDateTime.outputs.result}}.
+                      Commented by Action ${{github.workflow}}, last updated on ${{steps.getDateTime.outputs.result}}.
