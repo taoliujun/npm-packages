@@ -1,4 +1,4 @@
-name: check pull request
+name: bak
 run-name: 'check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
@@ -45,7 +45,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm remove @nike/eslint-multi-formatter @nike/svg-packer && pnpm install
 
     eslint:
         runs-on: ubuntu-latest
@@ -70,7 +70,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm remove @nike/eslint-multi-formatter @nike/svg-packer && pnpm install
 
             - name: Run eslint
               id: lint
@@ -80,7 +80,7 @@ jobs:
                   script: |
                       let output = '';
                       let outerr = '';
-                      await exec.exec("pnpm run lint", [], {
+                      await exec.exec("pnpm run lint --format stylish", [], {
                           // silent: true,
                           ignoreReturnCode: true,
                           listeners: {
