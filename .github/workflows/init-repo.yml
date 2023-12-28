@@ -1,0 +1,24 @@
+name: init repo
+on: workflow_call
+jobs:
+    init:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - name: Init node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
