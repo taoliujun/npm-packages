@@ -80,69 +80,74 @@ jobs:
 
             - name: Run eslint
               id: lint
-              run: |
-                  echo "node $(node -v)"
-                  echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
-
-    typescript:
-        runs-on: ubuntu-latest
-        needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
-        steps:
-            - name: Init repo
-              uses: actions/checkout@v4
+              uses: actions/github-script@v7
               with:
-                  ref: ${{github.head_ref}}
+                  script: |
+                      return `:white_check_mark: eslint result1`;
 
-            - name: Init pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 8
+            #   run: |
+            #       pnpm run lint
+            #       echo "this is eslint" && echo "result=:white_check_mark: eslint result" >> "$GITHUB_OUTPUT"
 
-            - name: Init node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: 'pnpm'
+    # typescript:
+    #     runs-on: ubuntu-latest
+    #     needs: [init]
+    #     outputs:
+    #         result: ${{ steps.lint.outputs.result }}
+    #     steps:
+    #         - name: Init repo
+    #           uses: actions/checkout@v4
+    #           with:
+    #               ref: ${{github.head_ref}}
 
-            - name: Install dependencies
-              run: pnpm install
+    #         - name: Init pnpm
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               version: 8
 
-            - name: Run tsc
-              id: lint
-              run: |
-                  echo "this is typescript" && echo "result=:x: typescript result" >> "$GITHUB_OUTPUT"
+    #         - name: Init node
+    #           uses: actions/setup-node@v4
+    #           with:
+    #               node-version: 20
+    #               cache: 'pnpm'
 
-    unitTest:
-        runs-on: ubuntu-latest
-        needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
-        steps:
-            - name: Init repo
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{github.head_ref}}
+    #         - name: Install dependencies
+    #           run: pnpm install
 
-            - name: Init pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 8
+    #         - name: Run tsc
+    #           id: lint
+    #           run: |
+    #               echo "this is typescript" && echo "result=:x: typescript result" >> "$GITHUB_OUTPUT"
 
-            - name: Init node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: 'pnpm'
+    # unitTest:
+    #     runs-on: ubuntu-latest
+    #     needs: [init]
+    #     outputs:
+    #         result: ${{ steps.lint.outputs.result }}
+    #     steps:
+    #         - name: Init repo
+    #           uses: actions/checkout@v4
+    #           with:
+    #               ref: ${{github.head_ref}}
 
-            - name: Install dependencies
-              run: pnpm install
+    #         - name: Init pnpm
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               version: 8
 
-            - name: Run jest
-              id: lint
-              run: |
-                  echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
+    #         - name: Init node
+    #           uses: actions/setup-node@v4
+    #           with:
+    #               node-version: 20
+    #               cache: 'pnpm'
+
+    #         - name: Install dependencies
+    #           run: pnpm install
+
+    #         - name: Run jest
+    #           id: lint
+    #           run: |
+    #               echo "this is unit test" && echo "result=unit test result" >> "$GITHUB_OUTPUT"
 
     # replyResult:
     #     runs-on: ubuntu-latest
