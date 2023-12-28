@@ -32,76 +32,51 @@ jobs:
     #                   Commented by Action **${{github.workflow}}**, last updated on ${{steps.getDateTime.outputs.result}}.
 
     init:
+        # just for pnpm cache
         runs-on: ubuntu-latest
-        outputs:
-            upload: ${{ steps.upload.outputs.artifact-id }}
         steps:
             - name: Init repo
               uses: actions/checkout@v4
               with:
                   ref: ${{github.head_ref}}
 
-            - name: Init node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-
             - name: Init pnpm
               uses: pnpm/action-setup@v2
               with:
                   version: 8
-                  run_install: false
+                  #   run_install: false
 
-            - name: Get pnpm store directory
-              shell: bash
-              run: |
-                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-            - name: Setup pnpm cache
-              uses: actions/cache@v3
+            - name: Init node
+              uses: actions/setup-node@v4
               with:
-                  path: ${{ env.STORE_PATH }}
-                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
+                  node-version: 20
+                  cache: 'pnpm'
+
+            # - name: Get pnpm store directory
+            #   shell: bash
+            #   run: |
+            #       echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+            # - name: Setup pnpm cache
+            #   uses: actions/cache@v3
+            #   with:
+            #       path: ${{ env.STORE_PATH }}
+            #       key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+            #       restore-keys: |
+            #           ${{ runner.os }}-pnpm-store-
 
             - name: Install dependencies
               run: pnpm install
-
-            - name: Upload initialized repo
-              id: upload
-              uses: actions/upload-artifact@v4
-              with:
-                  name: repo
-                  path: |
-                      ./
-                      !./.github
-                      !./.git
-                  retention-days: 1
 
     testInit:
         runs-on: ubuntu-latest
         needs: [init]
         steps:
-            - name: Download initialized repo
-              uses: actions/download-artifact@v4
-              with:
-                  name: repo
             - name: test init
               run: |
                   echo "git $(git rev-parse --abbrev-ref HEAD)"
                   echo "node $(node -v)"
                   ls -a
-            - name: Remove initialized repo
-              uses: actions/github-script@v7
-              with:
-                  script: |
-                      console.log('needs', '${{needs.init.outputs.upload}}');
-                      await octokit.rest.actions.deleteArtifact({
-                          owner: context.repo.owner,
-                          repo: context.repo.name,
-                          artifact_id: '${{needs.init.outputs.upload}}',
-                      });
 
     # eslint:
     #     runs-on: ubuntu-latest
