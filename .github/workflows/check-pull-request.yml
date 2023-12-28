@@ -87,6 +87,7 @@ jobs:
                       let output;
                       let outerr;
                       await exec.exec("pnpm run lint", [], {
+                          silent: true,
                           listeners: {
                             stdout: (data) => {
                                 console.log("==stdout", data.toString());
