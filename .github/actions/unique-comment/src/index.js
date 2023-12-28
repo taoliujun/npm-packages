@@ -3,11 +3,11 @@ const github = require('@actions/github');
 
 const main = async () => {
     const token = core.getInput('token');
+    const owner = core.getInput('owner');
+    const repo = core.getInput('repo');
+    const issueNumber = core.getInput('issue_number');
     const uniqueIdentifier = `[^uniqueIdentifier]: ${core.getInput('uniqueIdentifier')}`;
     const body = `${core.getInput('body')}\n\n${uniqueIdentifier}`;
-
-    const { owner, repo } = github.context.repo;
-    const issueNumber = github.context.issue.number;
 
     core.debug(`uniqueIdentifier is ${uniqueIdentifier}`);
 
