@@ -1,5 +1,5 @@
 name: test check pull request
-run-name: 'testa check pull request #${{ github.event.pull_request.number }}'
+run-name: 'check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
         types: [opened, synchronize, reopened]
@@ -34,6 +34,6 @@ jobs:
 
     replyResult:
         runs-on: ubuntu-latest
-        needs: [eslint, typescript, unitTest]
+        needs: [replyChecking, eslint, typescript, unitTest]
         steps:
             - run: echo 'job'
