@@ -1,5 +1,5 @@
-name: bak
-run-name: 'check pull request #${{ github.event.pull_request.number }}'
+name: test check pull request
+run-name: 'test check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
         types: [opened, synchronize, reopened]
@@ -7,188 +7,33 @@ jobs:
     replyChecking:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{github.head_ref}}
-            - name: Get date time
-              id: getDateTime
-              run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
-            - name: Create or update a comment
-              uses: ./.github/actions/unique-comment
-              with:
-                  uniqueIdentifier: ${{ github.workflow }}
-                  body: |
-                      **Checking...**
-
-                      ---
-
-                      Commented by Action [${{github.workflow}}](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}), last updated on ${{steps.getDateTime.outputs.result}}.
+            - run: echo 'job'
 
     init:
         runs-on: ubuntu-latest
-        if: ${{ false }}
         steps:
-            - name: Init repo
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{github.head_ref}}
-
-            - name: Init pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 8
-
-            - name: Init node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: 'pnpm'
-
-            - name: Install dependencies
-              run: |
-                  pnpm remove @nike/eslint-multi-formatter || true
-                  pnpm remove @nike/svg-packer || true
-                  pnpm install
+            - run: echo 'job'
 
     eslint:
         runs-on: ubuntu-latest
-        # needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
+        needs: [init]
         steps:
-            - name: Init repo
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{github.head_ref}}
-                  fetch-depth: 0
-
-            - name: Init pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 8
-
-            - name: Init node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: 'pnpm'
-
-            - name: Install dependencies
-              run: |
-                  pnpm remove @nike/eslint-multi-formatter || true
-                  pnpm remove @nike/svg-packer || true
-                  pnpm install
-
-            - name: Run eslint
-              id: lint
-              uses: actions/github-script@v7
-              with:
-                  result-encoding: string
-                  script: |
-                      let output = '';
-                      let outerr = '';
-                      let diffFiles = '';
-
-                      await exec.exec(
-                        `git diff --name-only origin/${{github.base_ref}}`,
-                        [],
-                        {
-                          // silent: true,
-                          // ignoreReturnCode: true,
-                          listeners: {
-                            stdout: (data) => {
-                                diffFiles += data.toString();
-                            },
-                          },
-                        }
-                      );
-
-                      const lintFiles = diffFiles.split(`\n`).filter((file) => {
-                        return file.endsWith('.js') || file.endsWith('.ts') || file.endsWith('.tsx')
-                      }).join(' ');
-
-                      await exec.exec(
-                        // "pnpm run lint --format stylish",
-                        `pnpm eslint ${lintFiles}`,
-                        [],
-                        {
-                          // silent: true,
-                          ignoreReturnCode: true,
-                          listeners: {
-                            stdout: (data) => {
-                                output += data.toString();
-                            },
-                            stderr: (data) => {
-                                outerr += data.toString();
-                            },
-                          },
-                        }
-                      );
-
-                      if (outerr) {
-                        return `:x: Some command execution errors, non-eslint business errors.`;
-                      }
-
-                      const errorMatch = output.match(/(\d+) errors?/);
-                      const warnMatch = output.match(/(\d+) warnings?/);
-
-                      if (errorMatch && errorMatch?.[1] !== '0') {
-                        return `:x: ${errorMatch?.[0]} ${warnMatch?.[0]}`;
-                      }
-
-                      return `:white_check_mark: ${errorMatch?.[0] || '0 error'} ${warnMatch?.[0] || '0 warning'}`;
+            - run: echo 'job'
 
     typescript:
         runs-on: ubuntu-latest
-        # needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
+        needs: [init]
         steps:
-            - name: Run tsc
-              id: lint
-              run: |
-                  echo "result=developing..." >> "$GITHUB_OUTPUT"
+            - run: echo 'job'
 
     unitTest:
         runs-on: ubuntu-latest
-        # needs: [init]
-        outputs:
-            result: ${{ steps.lint.outputs.result }}
+        needs: [init]
         steps:
-            - name: Run jest
-              id: lint
-              run: |
-                  echo "result=developing..." >> "$GITHUB_OUTPUT"
+            - run: echo 'job'
 
     replyResult:
         runs-on: ubuntu-latest
         needs: [eslint, typescript, unitTest]
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  ref: ${{github.head_ref}}
-            - name: Get date time
-              id: getDateTime
-              run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
-            - name: Create or update a comment
-              uses: ./.github/actions/unique-comment
-              with:
-                  uniqueIdentifier: ${{ github.workflow }}
-                  body: |
-                      ## Eslint Check Result
-
-                      ${{needs.eslint.outputs.result}}
-
-                      ## Typescript Check Result
-
-                      ${{needs.typescript.outputs.result}}
-
-                      ## UnitTest Check Result
-
-                      ${{needs.unitTest.outputs.result}}
-
-                      ---
-
-                      Commented by Action [${{github.workflow}}](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}), last updated on ${{steps.getDateTime.outputs.result}}.
+            - run: echo 'job'
