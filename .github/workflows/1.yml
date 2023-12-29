@@ -7,30 +7,46 @@ jobs:
     replyChecking:
         runs-on: ubuntu-latest
         steps:
-            - run: echo 'job'
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+            - name: Get date time
+              id: getDateTime
+              run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
+            - name: Create or update a comment
+              uses: ./.github/actions/unique-comment
+              with:
+                  uniqueIdentifier: ${{ github.workflow }}
+                  body: |
+                      **Checking...**
+
+                      ---
+
+                      Commented by Action [${{github.workflow}}](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}), last updated on ${{steps.getDateTime.outputs.result}}.
 
     init:
         runs-on: ubuntu-latest
         steps:
-            - run: echo 'job'
+            - run: echo 'init'
 
     eslint:
         runs-on: ubuntu-latest
         needs: [init]
         steps:
-            - run: echo 'job'
+            - run: echo 'eslint'
 
     typescript:
         runs-on: ubuntu-latest
         needs: [init]
         steps:
-            - run: echo 'job'
+            - run: echo 'typescript'
 
     unitTest:
         runs-on: ubuntu-latest
         needs: [init]
         steps:
-            - run: echo 'job'
+            - run: echo 'unitTest'
 
     replyResult:
         runs-on: ubuntu-latest
