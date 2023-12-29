@@ -74,7 +74,7 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
-            - name: Run eslint
+            - name: Run lint
               id: lint
               uses: actions/github-script@v7
               with:
@@ -121,7 +121,7 @@ jobs:
                       );
 
                       if (outerr) {
-                        return `:x: Some command execution errors, non-eslint business errors.`;
+                        return `:x: Some command execution errors, not business errors.`;
                       }
 
                       const errorMatch = output.match(/(\d+) errors?/);
@@ -139,10 +139,69 @@ jobs:
         outputs:
             result: ${{ steps.lint.outputs.result }}
         steps:
-            - name: Run tsc
+            - name: Init repo
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{github.head_ref}}
+                  fetch-depth: 0
+
+            - name: Init pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - name: Init node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Run lint
               id: lint
-              run: |
-                  echo "result=developing..." >> "$GITHUB_OUTPUT"
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      let output = '';
+                      let outerr = '';
+
+                      await exec.exec(
+                        `pnpm run lint:ts`,
+                        [],
+                        {
+                          silent: true,
+                          ignoreReturnCode: true,
+                          listeners: {
+                            stdout: (data) => {
+                                output += data.toString();
+                            },
+                            stderr: (data) => {
+                                outerr += data.toString();
+                            },
+                          },
+                        }
+                      );
+
+                      console.log('==output', output);
+                      console.log('==outerr', outerr);
+
+                      return 'typescript';
+
+                      if (outerr) {
+                        return `:x: Some command execution errors, not business errors.`;
+                      }
+
+                      const errorMatch = output.match(/(\d+) errors?/);
+                      const warnMatch = output.match(/(\d+) warnings?/);
+
+                      if (errorMatch && errorMatch?.[1] !== '0') {
+                        return `:x: ${errorMatch?.[0]} ${warnMatch?.[0]}`;
+                      }
+
+                      return `:white_check_mark: ${errorMatch?.[0] || '0 error'} ${warnMatch?.[0] || '0 warning'}`;
 
     unitTest:
         runs-on: ubuntu-latest
