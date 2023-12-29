@@ -36,4 +36,4 @@ jobs:
         runs-on: ubuntu-latest
         needs: [replyChecking, eslint, typescript, unitTest]
         steps:
-            - run: echo 'job'
+            - run: echo 'replyResult'
