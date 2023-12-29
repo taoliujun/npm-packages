@@ -1,5 +1,5 @@
 name: test check pull request
-run-name: 'test check pull request #${{ github.event.pull_request.number }}'
+run-name: 'testa check pull request #${{ github.event.pull_request.number }}'
 on:
     pull_request:
         types: [opened, synchronize, reopened]
