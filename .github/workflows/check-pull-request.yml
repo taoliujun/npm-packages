@@ -172,7 +172,7 @@ jobs:
                         `pnpm run lint:ts`,
                         [],
                         {
-                          silent: true,
+                          // silent: true,
                           ignoreReturnCode: true,
                           listeners: {
                             stdout: (data) => {
