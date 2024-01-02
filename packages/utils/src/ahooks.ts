@@ -12,15 +12,3 @@ export const ahookRequestCache = (cacheKey: string) => {
         },
     } as Pick<NonNullable<Parameters<typeof useRequest>[1]>, 'cacheKey' | 'setCache' | 'getCache'>;
 };
-
-
-interface AJ {
-    name: string;
-    age: number;
-}
-
-const a: AJ = {
-    name: 'hello',
-};
-
-console.log(a);
