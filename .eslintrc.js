@@ -5,8 +5,8 @@ module.exports = {
             // page store components are temporarily unused
             files: ['./packages/*/src/index.ts'],
             rules: {
-                'import/no-unused-modules': ['warn'],
-                'import/no-default-export': ['warn'],
+                'import/no-unused-modules': ['off'],
+                'import/no-default-export': ['off'],
             },
         },
     ],

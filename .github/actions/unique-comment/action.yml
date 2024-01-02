@@ -8,16 +8,20 @@ runs:
 inputs:
     token:
         description: 'GitHub token'
-        required: true
+        required: false
+        default: ${{ github.token }}
     owner:
         description: 'Repository owner'
-        required: true
+        required: false
+        default: ${{ github.event.repository.owner.login }}
     repo:
         description: 'Repository name'
-        required: true
+        required: false
+        default: ${{ github.event.repository.name }}
     issue_number:
         description: 'Issue number'
-        required: true
+        required: false
+        default: ${{ github.event.number }}
     body:
         description: 'Comment body'
         required: false
