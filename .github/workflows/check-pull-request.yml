@@ -17,7 +17,7 @@ jobs:
               run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
 
             - name: Create or update a comment
-              uses: ./.github/actions/unique-comment
+              uses: taoliujun/action-unique-comment@v1
               with:
                   uniqueIdentifier: ${{ github.workflow }}
                   body: |
@@ -87,7 +87,7 @@ jobs:
                       let diffFiles = '';
 
                       await exec.exec(
-                        `git diff --name-only origin/${{github.base_ref}}`,
+                        `git diff --name-only --diff-filter=d origin/${{github.base_ref}}`,
                         [],
                         {
                           // silent: true,
@@ -282,7 +282,7 @@ jobs:
               run: echo "result=$(TZ=Asia/Shanghai date)" >> "$GITHUB_OUTPUT"
 
             - name: Create or update a comment
-              uses: ./.github/actions/unique-comment
+              uses: taoliujun/action-unique-comment@v1
               with:
                   uniqueIdentifier: ${{ github.workflow }}
                   body: |
