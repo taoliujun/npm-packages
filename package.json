@@ -28,6 +28,7 @@
     "build": "pnpm run -r build",
     "lint:ts": "pnpm run -r lint:ts",
     "lint": "eslint packages --ext .ts,.js --cache",
+    "test": "echo 'test'",
     "prepare": "husky install"
   }
 }
