@@ -1,5 +1,6 @@
 import { ClassNameEnum, generateClassName } from './style';
 import { getValueType, isBoolean, isNull, isNumber, isString } from '../utils/valueType';
+import type { Options } from './types';
 
 /** create a wrapper for an item  */
 export const generateSingleItem = (
@@ -54,9 +55,15 @@ export const generateWrapperItem = (
     opt?: Partial<{
         isArrayType: boolean;
         isLast: boolean;
-    }>,
+    }> &
+        Partial<Pick<Options, 'expand'>>,
 ) => {
-    const { isArrayType, isLast } = opt || {};
+    const { isArrayType, isLast, expand = false } = opt || {};
+
+    console.log('==', {
+        label,
+        expand,
+    });
 
     const wrapperDom = document.createElement('div');
     wrapperDom.classList.add(generateClassName(ClassNameEnum.ITEMS_WRAPPER));
@@ -64,12 +71,25 @@ export const generateWrapperItem = (
         wrapperDom.classList.add(generateClassName(ClassNameEnum.ROOT_WRAPPER));
     }
 
+    const expandDom = document.createElement('button');
+    expandDom.innerText = '+';
+
+    const collapseDom = document.createElement('button');
+    collapseDom.innerText = '-';
+
+    const expandWrapperDom = document.createElement('div');
+    expandWrapperDom.append(expandDom);
+    expandWrapperDom.append(collapseDom);
+
     const typeSperatorBegin = isArrayType ? '[' : '{';
     const typeSperatorEnd = isArrayType ? ']' : '}';
 
     const beginWrapper = document.createElement('div');
     beginWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_BEGIN));
     beginWrapper.innerHTML = label ? `"${label.toString()}":&nbsp;${typeSperatorBegin}` : `${typeSperatorBegin}`;
+    if (expand) {
+        beginWrapper.prepend(expandWrapperDom);
+    }
 
     const contentWrapper = document.createElement('div');
     contentWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_CONTENT));

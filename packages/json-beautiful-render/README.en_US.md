@@ -91,6 +91,7 @@ Option
 | labelColor           | Text color of the key name                                      | string      | -       |
 | valueColor           | Text color of the key value                                     | string      | -       |
 | valueColors          | Text colors for different variable types                        | ValueColors | -       |
+| expand | Enable allow expand and collapse | boolean | false |
 
 #### ValueColors
 

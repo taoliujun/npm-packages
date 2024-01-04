@@ -11,4 +11,5 @@ export const DEFAULT_OPTIONS: Options = {
         number: '#1a01cc',
         specialness: '#ff6b00',
     },
+    expand: false,
 };
