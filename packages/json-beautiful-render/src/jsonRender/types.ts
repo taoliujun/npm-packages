@@ -1,24 +1,24 @@
 type Color = CSSStyleDeclaration['color'];
 
 interface Options {
-    /** 项目激活时，整行区域的背景色 */
+    /** The background color of the entire row area when the item is active */
     activeBgColor: Color;
-    /** 项目激活时，文字区域的背景色 */
+    /** The background color of the text area when the item is active */
     activeHighLightColor: Color;
-    /** 项目激活时，该项目所有父级键名的颜色 */
+    /** The color of all parent key names when the item is active */
     levelHighLightColor: Color;
-    /** 键名的文本颜色 */
+    /** The text color of the keyname */
     labelColor: Color;
-    /** 键值的文本颜色 */
+    /** The text color of the key */
     valueColor: Color;
-    /** 不同变量类型的文本颜色 */
+    /** Text colors for different variable types */
     valueColors: Partial<
         Record<
-            /** 字符串 */
+            /** string */
             | 'string'
-            /** 数值 */
+            /** numeric */
             | 'number'
-            /** 特殊值，如boolean、null */
+            /** Special values, such as boolean, null */
             | 'specialness',
             Color
         >

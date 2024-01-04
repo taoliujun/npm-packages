@@ -1,5 +1,5 @@
 interface Options {
-    /** 缩进字符 */
+    /** indent characters */
     indent: string;
 }
 
