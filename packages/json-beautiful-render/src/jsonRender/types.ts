@@ -23,6 +23,8 @@ interface Options {
             Color
         >
     >;
+    /** enable expand */
+    expand: boolean;
 }
 
 export type { Options };

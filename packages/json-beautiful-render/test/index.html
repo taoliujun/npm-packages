@@ -41,7 +41,9 @@
   <div id="styleDom"></div>
   <script>
       (function () {
-        const result = window.jsonRender(document.querySelector('#styleDom'), formatData,);
+        const result = window.jsonRender(document.querySelector('#styleDom'), formatData, {
+          expand: true
+        });
         console.log('jsonRender result', result);
       })()
   </script>

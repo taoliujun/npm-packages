@@ -91,6 +91,7 @@ console.log(result);
 | labelColor           | 键名的文本颜色                       | string      | -      |
 | valueColor           | 键值的文本颜色                       | string      | -      |
 | valueColors          | 不同变量类型的文本颜色               | ValueColors | -      |
+| expand | 允许展开收缩功能 | boolean | false |
 
 #### ValueColors
 
