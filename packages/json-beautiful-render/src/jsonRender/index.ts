@@ -3,6 +3,7 @@ import { generateSingleItem, generateWrapperItem } from './item';
 import { renderStyle } from './style';
 import type { Options } from './types';
 import { isArray, isObject } from '../utils/valueType';
+import { ROOT_KEY, DEFAULT_OPTIONS } from './constant';
 
 const render = (
     keyName: string,
@@ -30,9 +31,18 @@ const render = (
 };
 
 const renderMain = (el: HTMLElement | null | undefined, jsonValue: object, options?: Partial<Options>) => {
+    const finalOptions = {
+        ...DEFAULT_OPTIONS,
+        ...options,
+        valueColors: {
+            ...DEFAULT_OPTIONS?.valueColors,
+            ...options?.valueColors,
+        },
+    };
+
     const wrapper = document.createElement('div');
-    wrapper.appendChild(renderStyle(options));
-    wrapper.appendChild(render('', jsonValue, { isLast: true, expand: options?.expand }));
+    wrapper.appendChild(renderStyle(finalOptions));
+    wrapper.appendChild(render(ROOT_KEY, jsonValue, { isLast: true, expand: finalOptions?.expand }));
 
     if (el) {
         clearDomChild(el);
