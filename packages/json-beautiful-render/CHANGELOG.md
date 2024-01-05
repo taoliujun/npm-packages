@@ -1,5 +1,16 @@
 # json-beautiful-render
 
+## 2.0.0
+
+### Major Changes
+
+- 6686d10: feat: add expand
+
+### Patch Changes
+
+- 09656e6: style: update comment
+- 41e27d0: chore: adjust umd build workflow
+
 ## 1.2.1
 
 ### Patch Changes
