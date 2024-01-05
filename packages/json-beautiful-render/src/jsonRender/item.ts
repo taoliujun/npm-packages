@@ -66,6 +66,9 @@ export const generateWrapperItem = (
     if (!label || label === ROOT_KEY) {
         wrapperDom.classList.add(generateClassName(ClassNameEnum.ROOT_WRAPPER));
     }
+    if (label === ROOT_KEY && expand) {
+        wrapperDom.classList.add(generateClassName(ClassNameEnum.BASE_ROOT_WRAPPER));
+    }
 
     const expandDom = document.createElement('button');
     expandDom.classList.add(generateClassName(ClassNameEnum.ITEMS_EXPAND));
@@ -78,7 +81,7 @@ export const generateWrapperItem = (
     beginWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_BEGIN));
     beginWrapper.innerHTML =
         label && label !== ROOT_KEY ? `"${label.toString()}":&nbsp;${typeSperatorBegin}` : `${typeSperatorBegin}`;
-    if (expand && label !== ROOT_KEY) {
+    if (expand) {
         beginWrapper.prepend(expandDom);
     }
 

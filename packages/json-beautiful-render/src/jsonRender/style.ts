@@ -1,6 +1,7 @@
 import type { Options } from './types';
 
 export enum ClassNameEnum {
+    BASE_ROOT_WRAPPER = 'base_root_wrapper',
     ROOT_WRAPPER = 'root_wrapper',
 
     ITEMS_WRAPPER = 'items_wrapper',
@@ -33,6 +34,9 @@ export const generateClassName = (className: ClassNameEnum) => {
 // root style
 const renderRootStyle = () => {
     const styles = `
+      .${generateClassName(ClassNameEnum.BASE_ROOT_WRAPPER)} {
+        margin-left: 24px;
+      }
       .${generateClassName(ClassNameEnum.ROOT_WRAPPER)} {
         position: relative;
         font-family: monospace, Arial;
