@@ -1,13 +1,14 @@
 import type { Options } from './types';
-import { DEFAULT_OPTIONS } from './constant';
 
 export enum ClassNameEnum {
     ROOT_WRAPPER = 'root_wrapper',
 
     ITEMS_WRAPPER = 'items_wrapper',
     ITEMS_CONTENT = 'items_content',
+    ITEMS_CONTENT_EXPAND = 'items_content_expand',
     ITEMS_BEGIN = 'items_begin',
     ITEMS_END = 'items_end',
+    ITEMS_EXPAND = 'items_expand',
 
     SINGLE_WRAPPER = 'single_wrapper',
     SINGLE_CONTENT = 'single_content',
@@ -29,61 +30,82 @@ export const generateClassName = (className: ClassNameEnum) => {
     return `json_render_${classNamePrefix}_${className}`;
 };
 
-export const renderStyle = (options?: Partial<Options>): HTMLElement => {
-    const valueColors = { ...DEFAULT_OPTIONS.valueColors, ...(options?.valueColors ?? {}) };
-    const { labelColor, valueColor, activeBgColor, activeHighLightColor, levelHighLightColor } = {
-        ...DEFAULT_OPTIONS,
-        ...options,
-    };
-
-    const dom = document.createElement('style');
-    dom.setAttribute('rel', 'stylesheet');
-
-    // root
-    dom.innerHTML += `
-        .${generateClassName(ClassNameEnum.ROOT_WRAPPER)} {
-          position: relative;
-          font-family: monospace, Arial;
-          font-size: ${BASE_STYLES.fontSize}px;
-          line-height: ${BASE_STYLES.lineHeight}px;
-        }
-        .${generateClassName(ClassNameEnum.ROOT_WRAPPER)} * {
-          font-family: inherit;
-        }
+// root style
+const renderRootStyle = () => {
+    const styles = `
+      .${generateClassName(ClassNameEnum.ROOT_WRAPPER)} {
+        position: relative;
+        font-family: monospace, Arial;
+        font-size: ${BASE_STYLES.fontSize}px;
+        line-height: ${BASE_STYLES.lineHeight}px;
+      }
+      .${generateClassName(ClassNameEnum.ROOT_WRAPPER)} * {
+        font-family: inherit;
+      }
     `;
 
-    // items wrapper
-    dom.innerHTML += `
-        .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)} {
-          position: relative;
-        }
-        .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)}::before {
-          content: ' ';
-          position: absolute;
-          left: 0;
-          top: ${BASE_STYLES.lineHeight}px;
-          bottom: ${BASE_STYLES.lineHeight}px;
-          border-left: 1px dashed #ccc;
-        }
-        .${generateClassName(ClassNameEnum.ITEMS_CONTENT)} {
-          padding-left: 24px;
-        }
-        .${generateClassName(ClassNameEnum.ITEMS_BEGIN)} {
-          color: ${labelColor};
-          word-break: keep-all;
-          white-space: nowrap;
-        }
-        .${generateClassName(ClassNameEnum.ITEMS_END)} {
-          color: ${labelColor};
-        }
-        .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)}:hover > .${generateClassName(ClassNameEnum.ITEMS_BEGIN)},
-        .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)}:hover > .${generateClassName(ClassNameEnum.ITEMS_END)} {
-          color: ${levelHighLightColor};
-        }
+    return styles;
+};
+
+// items style
+const renderItemsStyle = (options?: Partial<Options>) => {
+    const { labelColor, levelHighLightColor } = options || {};
+    const styles = `
+      .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)} {
+        position: relative;
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)}::before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        top: ${BASE_STYLES.lineHeight}px;
+        bottom: ${BASE_STYLES.lineHeight}px;
+        border-left: 1px dashed #ccc;
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_CONTENT)} {
+        padding-left: 24px;
+        display: none;
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_CONTENT)}.${generateClassName(ClassNameEnum.ITEMS_CONTENT_EXPAND)} {
+        display: block;
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_BEGIN)} {
+        color: ${labelColor};
+        word-break: keep-all;
+        white-space: nowrap;
+        position: relative;
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_END)} {
+        color: ${labelColor};
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)}:hover > .${generateClassName(ClassNameEnum.ITEMS_BEGIN)},
+      .${generateClassName(ClassNameEnum.ITEMS_WRAPPER)}:hover > .${generateClassName(ClassNameEnum.ITEMS_END)} {
+        color: ${levelHighLightColor};
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_EXPAND)} {
+        position: absolute;
+        left: -4px;
+        top: 2px;
+        transform: translateX(-100%);
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 1px dashed #ccc;
+        color: #aaa;
+        background: #fff;
+      }
     `;
 
-    // single wrapper
-    dom.innerHTML += `
+    return styles;
+};
+
+// item style
+const renderItemStyle = (options?: Partial<Options>) => {
+    const { labelColor, valueColor, activeBgColor, activeHighLightColor, valueColors } = options || {};
+    const styles = `
       .${generateClassName(ClassNameEnum.SINGLE_WRAPPER)} {
         display: flex;
         align-items: center;
@@ -110,15 +132,31 @@ export const renderStyle = (options?: Partial<Options>): HTMLElement => {
         color: ${valueColor};
       }
       .${generateClassName(ClassNameEnum.SINGLE_STRING)} {
-        color: ${valueColors.string};
+        color: ${valueColors?.string};
       }
       .${generateClassName(ClassNameEnum.SINGLE_NUMBER)} {
-        color: ${valueColors.number};
+        color: ${valueColors?.number};
       }
       .${generateClassName(ClassNameEnum.SINGLE_SPECIALNESS)} {
-        color: ${valueColors.specialness};
+        color: ${valueColors?.specialness};
       }
     `;
+
+    return styles;
+};
+
+export const renderStyle = (options?: Partial<Options>): HTMLElement => {
+    const dom = document.createElement('style');
+    dom.setAttribute('rel', 'stylesheet');
+
+    // root
+    dom.innerHTML += renderRootStyle();
+
+    // items wrapper
+    dom.innerHTML += renderItemsStyle(options);
+
+    // single wrapper
+    dom.innerHTML += renderItemStyle(options);
 
     return dom;
 };

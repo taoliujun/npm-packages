@@ -11,5 +11,7 @@ export const DEFAULT_OPTIONS: Options = {
         number: '#1a01cc',
         specialness: '#ff6b00',
     },
-    expand: false,
+    expand: true,
 };
+
+export const ROOT_KEY = `$ROOT_KEY_${Math.random().toString(36).slice(2)}$`;

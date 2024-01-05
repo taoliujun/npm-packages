@@ -1,6 +1,7 @@
 import { ClassNameEnum, generateClassName } from './style';
 import { getValueType, isBoolean, isNull, isNumber, isString } from '../utils/valueType';
 import type { Options } from './types';
+import { ROOT_KEY } from './constant';
 
 /** create a wrapper for an item  */
 export const generateSingleItem = (
@@ -60,35 +61,25 @@ export const generateWrapperItem = (
 ) => {
     const { isArrayType, isLast, expand = false } = opt || {};
 
-    console.log('==', {
-        label,
-        expand,
-    });
-
     const wrapperDom = document.createElement('div');
     wrapperDom.classList.add(generateClassName(ClassNameEnum.ITEMS_WRAPPER));
-    if (!label) {
+    if (!label || label === ROOT_KEY) {
         wrapperDom.classList.add(generateClassName(ClassNameEnum.ROOT_WRAPPER));
     }
 
     const expandDom = document.createElement('button');
+    expandDom.classList.add(generateClassName(ClassNameEnum.ITEMS_EXPAND));
     expandDom.innerText = '+';
-
-    const collapseDom = document.createElement('button');
-    collapseDom.innerText = '-';
-
-    const expandWrapperDom = document.createElement('div');
-    expandWrapperDom.append(expandDom);
-    expandWrapperDom.append(collapseDom);
 
     const typeSperatorBegin = isArrayType ? '[' : '{';
     const typeSperatorEnd = isArrayType ? ']' : '}';
 
     const beginWrapper = document.createElement('div');
     beginWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_BEGIN));
-    beginWrapper.innerHTML = label ? `"${label.toString()}":&nbsp;${typeSperatorBegin}` : `${typeSperatorBegin}`;
-    if (expand) {
-        beginWrapper.prepend(expandWrapperDom);
+    beginWrapper.innerHTML =
+        label && label !== ROOT_KEY ? `"${label.toString()}":&nbsp;${typeSperatorBegin}` : `${typeSperatorBegin}`;
+    if (expand && label !== ROOT_KEY) {
+        beginWrapper.prepend(expandDom);
     }
 
     const contentWrapper = document.createElement('div');
@@ -104,6 +95,16 @@ export const generateWrapperItem = (
     wrapperDom.appendChild(beginWrapper);
     wrapperDom.appendChild(contentWrapper);
     wrapperDom.appendChild(endWrapper);
+
+    let hasExpand = false;
+    const toggleExpand = () => {
+        hasExpand = !hasExpand;
+        expandDom.innerText = hasExpand ? '-' : '+';
+        contentWrapper.classList.toggle(generateClassName(ClassNameEnum.ITEMS_CONTENT_EXPAND), hasExpand);
+    };
+
+    toggleExpand();
+    expandDom.addEventListener('click', toggleExpand);
 
     return wrapperDom;
 };
