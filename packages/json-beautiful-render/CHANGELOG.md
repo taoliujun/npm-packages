@@ -1,5 +1,15 @@
 # json-beautiful-render
 
+## 2.1.0
+
+### Minor Changes
+
+- c295245: feat: show items length
+
+### Patch Changes
+
+- 864a061: fix: When expand is enabled, set the left margin for the root node.
+
 ## 2.0.0
 
 ### Major Changes
