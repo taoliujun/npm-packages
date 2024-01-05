@@ -10,6 +10,7 @@ export enum ClassNameEnum {
     ITEMS_BEGIN = 'items_begin',
     ITEMS_END = 'items_end',
     ITEMS_EXPAND = 'items_expand',
+    ITEMS_LENGTH = 'items_length',
 
     SINGLE_WRAPPER = 'single_wrapper',
     SINGLE_CONTENT = 'single_content',
@@ -97,9 +98,15 @@ const renderItemsStyle = (options?: Partial<Options>) => {
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        border: 1px dashed #ccc;
-        color: #aaa;
+        border: 1px dashed #ddd;
+        color: #ddd;
         background: #fff;
+      }
+      .${generateClassName(ClassNameEnum.ITEMS_LENGTH)} {
+        margin-left: 5px;
+        color: #ddd;
+        font-size: 12px;
+        font-style: italic;
       }
     `;
 

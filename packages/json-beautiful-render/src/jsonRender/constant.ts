@@ -12,6 +12,7 @@ export const DEFAULT_OPTIONS: Options = {
         specialness: '#ff6b00',
     },
     expand: true,
+    showItemsLength: 'collapse',
 };
 
 export const ROOT_KEY = `$ROOT_KEY_${Math.random().toString(36).slice(2)}$`;

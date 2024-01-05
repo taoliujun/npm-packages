@@ -92,6 +92,7 @@ console.log(result);
 | valueColor           | 键值的文本颜色                       | string      | -      |
 | valueColors          | 不同变量类型的文本颜色               | ValueColors | -      |
 | expand | 允许展开和收缩功能 | boolean | true |
+| showItemsLength | 显示子元素的长度，`collapse`表示收缩时显示，`always`表示始终显示，其他值则不显示 | 'collapse' \| 'always' \| false | 'collapse' | 
 
 #### ValueColors
 

@@ -24,7 +24,7 @@ export const generateSingleItem = (
         const labelDom = document.createElement('span');
         labelDom.classList.add(generateClassName(ClassNameEnum.SINGLE_LABEL));
         labelDom.innerHTML = `"${label}":&nbsp;`;
-        contentWrapperDom.appendChild(labelDom);
+        contentWrapperDom.append(labelDom);
     }
 
     const valueDom = document.createElement('span');
@@ -42,9 +42,9 @@ export const generateSingleItem = (
     } else {
         valueDom.innerText = `${getValueType(value)}${comma}`;
     }
-    contentWrapperDom.appendChild(valueDom);
+    contentWrapperDom.append(valueDom);
 
-    wrapperDom.appendChild(contentWrapperDom);
+    wrapperDom.append(contentWrapperDom);
 
     return wrapperDom;
 };
@@ -57,9 +57,9 @@ export const generateWrapperItem = (
         isArrayType: boolean;
         isLast: boolean;
     }> &
-        Partial<Pick<Options, 'expand'>>,
+        Partial<Pick<Options, 'expand' | 'showItemsLength'>>,
 ) => {
-    const { isArrayType, isLast, expand = false } = opt || {};
+    const { isArrayType, isLast, expand, showItemsLength } = opt || {};
 
     const wrapperDom = document.createElement('div');
     wrapperDom.classList.add(generateClassName(ClassNameEnum.ITEMS_WRAPPER));
@@ -72,7 +72,10 @@ export const generateWrapperItem = (
 
     const expandDom = document.createElement('button');
     expandDom.classList.add(generateClassName(ClassNameEnum.ITEMS_EXPAND));
-    expandDom.innerText = '+';
+
+    const lengthDom = document.createElement('span');
+    lengthDom.classList.add(generateClassName(ClassNameEnum.ITEMS_LENGTH));
+    lengthDom.innerText = `${values.length} ${values.length > 1 ? 'items' : 'item'}`;
 
     const typeSperatorBegin = isArrayType ? '[' : '{';
     const typeSperatorEnd = isArrayType ? ']' : '}';
@@ -81,6 +84,9 @@ export const generateWrapperItem = (
     beginWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_BEGIN));
     beginWrapper.innerHTML =
         label && label !== ROOT_KEY ? `"${label.toString()}":&nbsp;${typeSperatorBegin}` : `${typeSperatorBegin}`;
+    if (showItemsLength === 'always') {
+        beginWrapper.append(lengthDom);
+    }
     if (expand) {
         beginWrapper.prepend(expandDom);
     }
@@ -88,22 +94,27 @@ export const generateWrapperItem = (
     const contentWrapper = document.createElement('div');
     contentWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_CONTENT));
     values.forEach((v) => {
-        contentWrapper.appendChild(v);
+        contentWrapper.append(v);
     });
 
     const endWrapper = document.createElement('div');
     endWrapper.classList.add(generateClassName(ClassNameEnum.ITEMS_END));
     endWrapper.innerText = `${typeSperatorEnd}${isLast ? '' : ','}`;
 
-    wrapperDom.appendChild(beginWrapper);
-    wrapperDom.appendChild(contentWrapper);
-    wrapperDom.appendChild(endWrapper);
+    wrapperDom.append(beginWrapper, contentWrapper, endWrapper);
 
     let hasExpand = false;
     const toggleExpand = () => {
         hasExpand = !hasExpand;
         expandDom.innerText = hasExpand ? '-' : '+';
         contentWrapper.classList.toggle(generateClassName(ClassNameEnum.ITEMS_CONTENT_EXPAND), hasExpand);
+        if (showItemsLength === 'collapse') {
+            if (hasExpand) {
+                lengthDom.remove();
+            } else {
+                beginWrapper.append(lengthDom);
+            }
+        }
     };
 
     toggleExpand();

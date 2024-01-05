@@ -25,6 +25,8 @@ interface Options {
     >;
     /** enable expand */
     expand: boolean;
+    /** show items length */
+    showItemsLength: undefined | false | 'collapse' | 'always';
 }
 
 export type { Options };

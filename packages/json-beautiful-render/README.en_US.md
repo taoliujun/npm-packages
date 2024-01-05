@@ -92,6 +92,7 @@ Option
 | valueColor           | Text color of the key value                                     | string      | -       |
 | valueColors          | Text colors for different variable types                        | ValueColors | -       |
 | expand | Enable expand and collapse | boolean | true |
+| showItemsLength | Show the child items length, `collapse` means show when collapsed items, `always` means always show, and otherwise means non-show. | 'collapse' \| 'always' \| false | 'collapse' | 
 
 #### ValueColors
 
