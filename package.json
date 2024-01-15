@@ -15,7 +15,7 @@
     "@commitlint/config-conventional": "^18.4.4",
     "@taoliujun/eslint-config": "workspace:^",
     "@tsconfig/node18": "^18.2.2",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.11.3",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "typescript": "^5.3.3"
