@@ -8,13 +8,13 @@
   prConcurrentLimit: 0,
   prHourlyLimit: 0,
   rangeStrategy: "bump",
-  packageRules: [
-    {
-      matchFileNames: ["**/package.json"],
-      matchPackageNames: ["node"],
-      matchManagers: ["npm"],
-      matchDepTypes: [ "engines" ],
-      enabled: false
-    }
-  ]
+  // packageRules: [
+  //   {
+  //     matchFileNames: ["**/package.json"],
+  //     matchPackageNames: ["node"],
+  //     matchManagers: ["npm"],
+  //     matchDepTypes: [ "engines" ],
+  //     enabled: false
+  //   }
+  // ]
 }
