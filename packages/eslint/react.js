@@ -2,7 +2,7 @@ const { getExtends } = require('./util');
 
 module.exports = {
     extends: [require.resolve('./base'), ...getExtends('react')],
-    plugins: ['react-hooks'],
+    plugins: ['react-hooks', 'react-hooks-addons'],
     settings: {
         react: {
             version: 'detect',
@@ -21,6 +21,7 @@ module.exports = {
         // react-hooks
         'react-hooks/rules-of-hooks': ['error'],
         'react-hooks/exhaustive-deps': ['error'],
+        'react-hooks-addons/no-unused-deps': ['error'],
     },
 
     overrides: [
