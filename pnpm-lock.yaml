@@ -80,6 +80,9 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^4.6.0
         version: 4.6.0(eslint@8.56.0)
+      eslint-plugin-react-hooks-addons:
+        specifier: ^0.3.1
+        version: 0.3.1(eslint@8.56.0)
       prettier:
         specifier: ^3.1.1
         version: 3.1.1
@@ -1967,6 +1970,14 @@ packages:
       prettier: 3.1.1
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.6
+    dev: false
+
+  /eslint-plugin-react-hooks-addons@0.3.1(eslint@8.56.0):
+    resolution: {integrity: sha512-jtvkYAvDeO15NM78XZ/rxU/uqu9lEeKKhjyYDAtMrnrso8wvwiWX/HNBUovhG0+LJioyhW72h1vdqJjWkziPeg==}
+    peerDependencies:
+      eslint: '>=3.0.0'
+    dependencies:
+      eslint: 8.56.0
     dev: false
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.56.0):
