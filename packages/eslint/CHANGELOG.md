@@ -1,5 +1,11 @@
 # @taoliujun/eslint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- 9c59bdf: feat: add react-hoos-addons plugin to detect unnecessary dependencies"
+
 ## 2.0.1
 
 ### Patch Changes
