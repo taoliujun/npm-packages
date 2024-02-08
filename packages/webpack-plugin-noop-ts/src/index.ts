@@ -1,7 +1,7 @@
 export default () => {
     return {
         apply() {
-            // nothing
+            // noop
         },
     };
 };
