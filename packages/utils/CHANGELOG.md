@@ -1,5 +1,11 @@
 # @taoliujun/utils
 
+## 2.1.7
+
+### Patch Changes
+
+- ef79e61: fix: adjust types of ahookRequestCache
+
 ## 2.1.6
 
 ### Patch Changes
