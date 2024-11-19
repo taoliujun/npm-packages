@@ -44,6 +44,6 @@
     "ahooks": "^3.7.10"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.2"
+    "@tsconfig/node18": "^18.2.4"
   }
 }
