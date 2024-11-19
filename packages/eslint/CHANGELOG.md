@@ -1,5 +1,11 @@
 # @taoliujun/eslint-config
 
+## 3.0.0
+
+### Major Changes
+
+- e3ef143: support eslint v9
+
 ## 2.1.0
 
 ### Minor Changes
