@@ -1,0 +1,30 @@
+{
+  "name": "@taoliujun/eslint9-config",
+  "version": "0.0.0",
+  "description": "eslint v9 for private use",
+  "keywords": [
+    "eslint"
+  ],
+  "author": "taoliujun <taoliujun@qq.com>",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/eslint-config",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "*.js",
+    "*.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoliujun/npm-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taoliujun/npm-packages/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "globals": "^15.12.0"
+  }
+}
