@@ -9,5 +9,12 @@ module.exports = {
                 'import/no-default-export': ['off'],
             },
         },
+        {
+            files: ['./packages/eslint9/*.js'],
+            rules: {
+                'import/no-unused-modules': ['off'],
+                'import/no-default-export': ['off'],
+            },
+        },
     ],
 };

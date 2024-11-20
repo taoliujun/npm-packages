@@ -1,5 +1,11 @@
 # @taoliujun/eslint-config
 
+## 3.1.0
+
+### Minor Changes
+
+- 49d6144: error version 3.0 and not support eslint v9
+
 ## 3.0.0
 
 ### Major Changes
