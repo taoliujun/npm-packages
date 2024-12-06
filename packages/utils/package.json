@@ -41,7 +41,7 @@
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types"
   },
   "optionalDependencies": {
-    "ahooks": "^3.7.10"
+    "ahooks": "^3.8.4"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2"
