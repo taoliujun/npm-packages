@@ -10,7 +10,7 @@
   "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/utils",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=18.20.6"
   },
   "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.js",
