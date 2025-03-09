@@ -36,7 +36,8 @@
     "build:cjs": "tsc --module CommonJS --moduleResolution Node --outDir lib/cjs",
     "build:esm": "tsc --module ES6 --moduleResolution Bundler --outDir lib/esm",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types",
-    "prebuild": "pnpm install --frozen-lockfile --no-verify-store-integrity",
+    "clean": "rm -rf lib/",
+    "prebuild1": "pnpm install --frozen-lockfile --no-verify-store-integrity",
     "fix": "pnpm install --fix-lockfile"
   },
   "devDependencies": {
