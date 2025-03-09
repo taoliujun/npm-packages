@@ -6,14 +6,8 @@
   "engines": {
     "node": ">=20"
   },
-  "types": "./lib/types/index.d.ts",
-  "main": "./lib/cjs/index.js",
-  "exports": {
-    "types": "./lib/types/index.d.ts",
-    "require": "./lib/cjs/index.js",
-    "export": "./lib/esm/index.js",
-    "default": "./lib/cjs/index.js"
-  },
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
   "files": [
     "lib",
     "/*.md",
@@ -27,15 +21,13 @@
     "url": "https://github.com/taoliujun/npm-packages/issues"
   },
   "author": "taoliujun <taoliujun@qq.com>",
-  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/utils",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/common-utils",
   "scripts": {
     "lint:ts": "tsc --noEmit",
     "lint": "eslint src/ --ext .ts --cache",
     "start": "tsc -w",
-    "build:types": "tsc -d --emitDeclarationOnly --declarationDir lib/types",
-    "build:cjs": "tsc --module CommonJS --moduleResolution Node --outDir lib/cjs",
-    "build:esm": "tsc --module ES6 --moduleResolution Bundler --outDir lib/esm",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types",
+    "build:cjs": "tsc --module CommonJS --moduleResolution Node --outDir lib",
+    "build": "npm run clean && npm run build:cjs",
     "clean": "rm -rf lib/",
     "prebuild1": "pnpm install --frozen-lockfile --no-verify-store-integrity",
     "fix": "pnpm install --fix-lockfile"
