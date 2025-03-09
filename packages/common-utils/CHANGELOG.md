@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.2.0
+
+### Minor Changes
+
+-   d6335a8: chore: build
+
 ## 1.1.2
 
 ### Patch Changes
