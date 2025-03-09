@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "root": true,
+  "compilerOptions": {
+    "target": "ES2021",
+    "baseUrl": "./",
+    "outDir": "./lib",
+    "declaration": true,
+  },
+  "include": [
+    "src/"
+  ],
+  "exclude": []
+}
