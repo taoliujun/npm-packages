@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.1.2
+
+### Patch Changes
+
+-   65cbab3: chore: build
+
 ## 1.1.1
 
 ### Patch Changes
