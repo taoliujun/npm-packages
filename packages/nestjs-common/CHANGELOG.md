@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.0.4
+
+### Patch Changes
+
+-   5235823: chore: 重新构建
+
 ## 1.0.3
 
 ### Patch Changes
