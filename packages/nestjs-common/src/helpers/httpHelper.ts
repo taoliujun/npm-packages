@@ -20,7 +20,6 @@ export class HttpHelper {
         const res = await fetch(url, {
             ...params,
             headers: {
-                'Content-Type': 'application/json',
                 ...params?.headers,
             },
             signal: signal.signal,
@@ -50,7 +49,10 @@ export class HttpHelper {
             {
                 method: 'POST',
                 body: jsonStringify(data),
-                headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers,
+                },
             },
             opts,
         );
@@ -101,7 +103,10 @@ export class HttpHelper {
             sUrl,
             {
                 method: 'GET',
-                headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers,
+                },
             },
             opts,
         );
@@ -121,7 +126,10 @@ export class HttpHelper {
             {
                 method: 'PUT',
                 body: jsonStringify(data),
-                headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers,
+                },
             },
             opts,
         );
@@ -141,7 +149,10 @@ export class HttpHelper {
             {
                 method: 'GET',
                 body: jsonStringify(data),
-                headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers,
+                },
             },
             opts,
         );
