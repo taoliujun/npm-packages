@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.1
+
+### Patch Changes
+
+-   5c0f316: republish
+
 ## 1.3.0
 
 ### Minor Changes
