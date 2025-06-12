@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.2.1
+
+### Patch Changes
+
+-   5a50aac: fix: http postWithFormData
+
 ## 1.2.0
 
 ### Minor Changes

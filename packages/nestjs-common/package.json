@@ -1,6 +1,6 @@
 {
   "name": "@taoliujun/nestjs-common",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "nestjs common functions",
   "license": "MIT",
   "engines": {
