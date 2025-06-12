@@ -1,0 +1,7 @@
+{
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "search.exclude": {
+    "/lib": true
+  }
+}

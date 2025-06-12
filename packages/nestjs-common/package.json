@@ -1,0 +1,42 @@
+{
+  "name": "@taoliujun/nestjs-common",
+  "version": "1.0.0",
+  "description": "nestjs common functions",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "/*.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoliujun/npm-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taoliujun/npm-packages/issues"
+  },
+  "author": "taoliujun <taoliujun@qq.com>",
+  "homepage": "https://github.com/taoliujun/npm-packages/tree/master/packages/nestjs-common",
+  "scripts": {
+    "lint:ts": "tsc --noEmit",
+    "lint": "eslint src/ --ext .ts --cache",
+    "start": "tsc -w",
+    "build:cjs": "tsc --module CommonJS --moduleResolution Node --outDir lib",
+    "build": "npm run clean && npm run build:cjs",
+    "clean": "rm -rf lib/",
+    "prebuild1": "pnpm install --frozen-lockfile --no-verify-store-integrity",
+    "fix": "pnpm install --fix-lockfile"
+  },
+  "dependencies": {
+    "@taoliujun/common-utils": "link:../common-utils",
+    "undici": "^6.20.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.5"
+  }
+}
