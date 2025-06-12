@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.1.0
+
+### Minor Changes
+
+-   4c0b6cc: feat: 增加一些decorator
+
 ## 1.0.4
 
 ### Patch Changes

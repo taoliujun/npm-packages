@@ -1,6 +1,6 @@
 {
   "name": "@taoliujun/nestjs-common",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "nestjs common functions",
   "license": "MIT",
   "engines": {
@@ -34,9 +34,12 @@
   },
   "dependencies": {
     "@taoliujun/common-utils": "workspace:^1",
+    "class-validator": "^0.14.2",
+    "lodash": "^4.17.21",
     "undici": "^6.20.0"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.5"
+    "@tsconfig/node20": "^20.1.5",
+    "@types/lodash": "^4.17.17"
   }
 }
