@@ -3,10 +3,9 @@ import { ProxyAgent } from 'undici';
 
 /** 发起http请求 */
 export class HttpHelper {
-    async post<T>(
+    public async baseRequest<T>(
         url: string,
-        data: unknown,
-        headers?: Record<string, string>,
+        params: RequestInit,
         opts?: Partial<{
             /** 代理 */
             httpProxy: string;
@@ -19,12 +18,11 @@ export class HttpHelper {
         }, 10000);
 
         const res = await fetch(url, {
-            method: 'POST',
+            ...params,
             headers: {
                 'Content-Type': 'application/json',
-                ...headers,
+                ...params?.headers,
             },
-            body: jsonStringify(data),
             signal: signal.signal,
             ...(opts?.httpProxy && {
                 dispatcher: new ProxyAgent(opts.httpProxy),
@@ -36,6 +34,26 @@ export class HttpHelper {
         return res.text().then((e) => {
             return jsonParse<T>(e);
         });
+    }
+
+    async post<T>(
+        url: string,
+        data: unknown,
+        headers?: Record<string, string>,
+        opts?: Partial<{
+            /** 代理 */
+            httpProxy: string;
+        }>,
+    ) {
+        return this.baseRequest<T>(
+            url,
+            {
+                method: 'POST',
+                body: jsonStringify(data),
+                headers,
+            },
+            opts,
+        );
     }
 
     async postWithFormData<T>(
@@ -47,36 +65,23 @@ export class HttpHelper {
             httpProxy: string;
         }>,
     ) {
-        const signal = new AbortController();
-
-        const t = setTimeout(() => {
-            signal.abort();
-        }, 10000);
-
         const body = new FormData();
         Object.entries(data).forEach(([key, value]) => {
             body.append(key, value);
         });
 
-        const res = await fetch(url, {
-            method: 'POST',
-            headers: {
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                ...headers,
+        return this.baseRequest<T>(
+            url,
+            {
+                method: 'POST',
+                body,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    ...headers,
+                },
             },
-            // body: qs.stringify(data),
-            body,
-            signal: signal.signal,
-            ...(opts?.httpProxy && {
-                dispatcher: new ProxyAgent(opts.httpProxy),
-            }),
-        });
-
-        clearTimeout(t);
-
-        return res.text().then((e) => {
-            return jsonParse<T>(e);
-        });
+            opts,
+        );
     }
 
     async get<T>(
@@ -88,35 +93,58 @@ export class HttpHelper {
             httpProxy: string;
         }>,
     ) {
-        const signal = new AbortController();
-
-        const t = setTimeout(() => {
-            signal.abort();
-        }, 10000);
-
         const q = new URLSearchParams(data).toString();
         const queryFlag = url.includes('?') ? '&' : '?';
 
         const sUrl = `${url}${q ? queryFlag : ''}${q}`;
 
-        // console.debug('==get==', { sUrl });
-
-        const res = await fetch(sUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                ...headers,
+        return this.baseRequest<T>(
+            sUrl,
+            {
+                method: 'GET',
+                headers,
             },
-            signal: signal.signal,
-            ...(opts?.httpProxy && {
-                dispatcher: new ProxyAgent(opts.httpProxy),
-            }),
-        });
+            opts,
+        );
+    }
 
-        clearTimeout(t);
+    async put<T>(
+        url: string,
+        data: unknown,
+        headers?: Record<string, string>,
+        opts?: Partial<{
+            /** 代理 */
+            httpProxy: string;
+        }>,
+    ) {
+        return this.baseRequest<T>(
+            url,
+            {
+                method: 'PUT',
+                body: jsonStringify(data),
+                headers,
+            },
+            opts,
+        );
+    }
 
-        return res.text().then((e) => {
-            return jsonParse<T>(e);
-        });
+    async delete<T>(
+        url: string,
+        data: unknown,
+        headers?: Record<string, string>,
+        opts?: Partial<{
+            /** 代理 */
+            httpProxy: string;
+        }>,
+    ) {
+        return this.baseRequest<T>(
+            url,
+            {
+                method: 'GET',
+                body: jsonStringify(data),
+                headers,
+            },
+            opts,
+        );
     }
 }
