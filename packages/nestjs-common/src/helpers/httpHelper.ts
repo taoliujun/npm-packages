@@ -76,7 +76,6 @@ export class HttpHelper {
                 method: 'POST',
                 body,
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
                     ...headers,
                 },
             },
