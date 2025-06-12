@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.0
+
+### Minor Changes
+
+-   eb17d3c: 新增ip方法
+
 ## 1.2.0
 
 ### Minor Changes
