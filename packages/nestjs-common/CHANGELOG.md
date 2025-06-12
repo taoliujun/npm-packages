@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.2.0
+
+### Minor Changes
+
+-   ebac5f7: feat: 重构http.helper
+
 ## 1.1.0
 
 ### Minor Changes
