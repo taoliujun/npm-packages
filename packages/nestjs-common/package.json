@@ -33,7 +33,7 @@
     "fix": "pnpm install --fix-lockfile"
   },
   "dependencies": {
-    "@taoliujun/common-utils": "link:../common-utils",
+    "@taoliujun/common-utils": "workspace:^1",
     "undici": "^6.20.0"
   },
   "devDependencies": {

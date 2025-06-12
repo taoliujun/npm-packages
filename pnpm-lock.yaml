@@ -124,7 +124,7 @@ importers:
   packages/nestjs-common:
     dependencies:
       '@taoliujun/common-utils':
-        specifier: link:../common-utils
+        specifier: workspace:^1
         version: link:../common-utils
       undici:
         specifier: ^6.20.0
