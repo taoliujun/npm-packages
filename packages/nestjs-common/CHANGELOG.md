@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.3.0
+
+### Minor Changes
+
+-   6d560fe: feat: export decorators
+
 ## 1.2.2
 
 ### Patch Changes
