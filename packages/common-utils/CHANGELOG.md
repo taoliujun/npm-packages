@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.2
+
+### Patch Changes
+
+-   79a40d0: fix: 支持::ffff:类型的ip地址
+
 ## 1.3.1
 
 ### Patch Changes
