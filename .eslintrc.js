@@ -16,5 +16,11 @@ module.exports = {
                 'import/no-default-export': ['off'],
             },
         },
+        {
+            files: ['./packages/common-utils/src/**/*.ts'],
+            rules: {
+                'import/no-unused-modules': ['off'],
+            },
+        },
     ],
 };

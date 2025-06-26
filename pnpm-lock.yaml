@@ -50,6 +50,9 @@ importers:
       json-bigint:
         specifier: ^1.0.0
         version: 1.0.0
+      undici:
+        specifier: ^6
+        version: 6.20.0
     devDependencies:
       '@tsconfig/recommended':
         specifier: ^1.0.8
