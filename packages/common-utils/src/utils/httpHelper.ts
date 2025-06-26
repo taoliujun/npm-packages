@@ -20,7 +20,7 @@ export class HttpHelper {
         clearTimeout(t);
 
         return res.text().then((e) => {
-            return jsonParse<T>(e);
+            return jsonParse<T>(e) as T;
         });
     }
 
