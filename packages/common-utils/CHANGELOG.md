@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.5
+
+### Patch Changes
+
+-   a89bef0: httpRequest
+
 ## 1.3.4
 
 ### Patch Changes
