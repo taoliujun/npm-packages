@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.6
+
+### Patch Changes
+
+-   176be6c: rebuild
+
 ## 1.3.5
 
 ### Patch Changes
