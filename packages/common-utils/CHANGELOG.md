@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.3
+
+### Patch Changes
+
+-   61609a2: feat: add httpHelper
+
 ## 1.3.2
 
 ### Patch Changes
