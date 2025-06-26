@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.4
+
+### Patch Changes
+
+-   5d9f8c1: fix: remove httpProxy
+
 ## 1.3.3
 
 ### Patch Changes
