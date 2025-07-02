@@ -12,5 +12,5 @@ export const isPrivateIp = (originIp: string) => {
         ip = ip.replace('::ffff:', '');
     }
 
-    return ip?.startsWith('127.0.0.1') || ipv4Regex.test(ip) || ipv6Regex.test(ip);
+    return ip === '::1' || ip?.startsWith('127.0.0.1') || ipv4Regex.test(ip) || ipv6Regex.test(ip);
 };
