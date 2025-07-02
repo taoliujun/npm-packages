@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.3.7
+
+### Patch Changes
+
+-   02e4961: update isPrivateIp
+
 ## 1.3.6
 
 ### Patch Changes
