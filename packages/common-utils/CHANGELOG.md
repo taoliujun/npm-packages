@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.4.0
+
+### Minor Changes
+
+-   3faeba6: feat: time增加功能
+
 ## 1.3.7
 
 ### Patch Changes
