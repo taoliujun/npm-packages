@@ -1,6 +1,6 @@
 {
   "name": "@taoliujun/common-utils",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "common functions",
   "license": "MIT",
   "engines": {
@@ -39,6 +39,6 @@
   "dependencies": {
     "dayjs": "^1.11.13",
     "decimal.js": "^10.5.0",
-    "json-bigint": "^1.0.0"
+    "json-bigint": "^0.4.0"
   }
 }

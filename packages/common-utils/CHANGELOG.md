@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.4.1
+
+### Patch Changes
+
+-   874b203: fix: json-bigint null prototype
+
 ## 1.4.0
 
 ### Minor Changes
