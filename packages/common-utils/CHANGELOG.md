@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.4.2
+
+### Patch Changes
+
+-   fd89d2b: fix: recover json-bigint
+
 ## 1.4.1
 
 ### Patch Changes
