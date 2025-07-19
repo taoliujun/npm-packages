@@ -10,7 +10,7 @@ export const jsonParse = <T>(text: string) => {
 };
 
 /** json stringify 支持大数字 */
-export const jsonStringify = (input: any) => {
+export const jsonStringify = (input: unknown) => {
     try {
         return BIGJSON.stringify(input);
     } catch {

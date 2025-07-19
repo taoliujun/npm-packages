@@ -48,8 +48,8 @@ importers:
         specifier: ^10.5.0
         version: 10.5.0
       json-bigint:
-        specifier: ^0.4.0
-        version: 0.4.0
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@tsconfig/recommended':
         specifier: ^1.0.8
@@ -1681,8 +1681,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  json-bigint@0.4.0:
-    resolution: {integrity: sha512-XVRlFBFhzHFuV6ACStPP+7MURGyHWvEP+cPCWox6Y4oySdlqHVjOHd/EL3q/kKbDc6p3tdQV/kZuFIFUQQFmaw==}
+  json-bigint@1.0.0:
+    resolution: {integrity: sha512-SiPv/8VpZuWbvLSMtTDU8hEfrZWg/mH/nV/b4o0CYbSxu1UIQPLdwKOCIyLQX+VIPO5vrLX3i8qtqFyhdPSUSQ==}
 
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
@@ -4534,7 +4534,7 @@ snapshots:
 
   jsesc@3.0.2: {}
 
-  json-bigint@0.4.0:
+  json-bigint@1.0.0:
     dependencies:
       bignumber.js: 9.1.2
 
