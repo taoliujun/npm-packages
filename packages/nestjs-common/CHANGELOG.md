@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.4.0
+
+### Minor Changes
+
+-   275e202: add common tsconfig.json
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@taoliujun/nestjs-common",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "nestjs common functions",
   "license": "MIT",
   "engines": {
@@ -30,6 +30,7 @@
     "build": "npm run clean && npm run build:cjs",
     "clean": "rm -rf lib/",
     "prebuild1": "pnpm install --frozen-lockfile --no-verify-store-integrity",
+    "postbuild": "cp -rf src/tsconfig lib/",
     "fix": "pnpm install --fix-lockfile"
   },
   "dependencies": {
