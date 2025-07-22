@@ -1,5 +1,11 @@
 # @taoliujun/nestjs-common
 
+## 1.4.1
+
+### Patch Changes
+
+-   f656184: fix tsconfig node20.json
+
 ## 1.4.0
 
 ### Minor Changes
