@@ -1,5 +1,11 @@
 # @taoliujun/common-utils
 
+## 1.5.0
+
+### Minor Changes
+
+-   cf1a85f: add jsonParse2
+
 ## 1.4.2
 
 ### Patch Changes
